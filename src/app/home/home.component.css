@@ -1,0 +1,11 @@
+.bf{
+    border-left : 7px solid purple
+}
+.pr{
+   align-self: center;
+ 
+    float: right;
+}
+span{
+    font-size: 40px
+}

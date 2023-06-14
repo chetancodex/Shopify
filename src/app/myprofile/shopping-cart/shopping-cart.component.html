@@ -1,0 +1,70 @@
+<div class="shopping-cart-conatiner">
+
+    <hr>
+<div class="cart-container" >
+
+  <div class="title container-lg bf">
+    <span><h2>My Cart</h2></span>
+</div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Product Preview</th>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of cartProducts">
+          <tr>
+            <th scope="row"><img src="{{item.image}}" width="144px" height="96px"></th>
+            <td><div class="name">
+                <h3> NIKE FREE RN 2019 ID</h3>
+                <p> Far far away, behind the word mountains, far from the countries</p>
+            </div></td>
+            <td><div class="price">
+                $4.90
+            </div></td>
+            <td>1</td>
+            <td>$4.90</td>
+          </tr>
+         
+        </tbody>
+      </table>
+      <h4>Cart Details</h4>
+      <div class="container">
+        <table class="table table-dark table-borderless">
+            <thead>
+                <tr>
+                  <th scope="col">SubTotal</th>
+                  <th scope="col">$20.00</th>
+                
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>Delivery</th>
+                  <td>$10.00</td>
+           
+                </tr>
+                <tr>
+                  <th>Discount</th>
+                  <td>$5.00</td>
+                </tr>
+                <hr>
+                <tr>
+                    <th>Total</th>
+                    <td>$25.00</td>
+                </tr>
+               
+              </tbody>
+          </table>
+      </div>
+      <div class="container">
+        <a class="btn" href="#">Proceed To CheckOut</a>
+            </div>
+</div>
+    
+
+</div>

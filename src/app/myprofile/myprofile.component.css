@@ -1,0 +1,17 @@
+a{
+    text-decoration: none;
+    list-style: none;
+}
+app-sidenav{
+    display: block;
+    width: 40%;
+    height: 100vh;
+    float: left;
+}
+.child{
+    display: block;
+    float: left;
+    width: 400px
+}
+
+

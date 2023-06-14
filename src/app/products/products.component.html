@@ -1,0 +1,16 @@
+<div class="grid">
+  <div class="accord right" *ngIf="occur"></div>
+  <div class="container-lg grid-4-cols">
+    <div class="container" *ngFor="let item of productApiData ;" routerLink = "singleProduct" style="cursor:pointer">
+      <div class="card" style="width: 18rem">
+        <img src="{{item.image}}" class="image-responsive" style="width:280px; height:180px" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{item.name}}</h5>
+        </div>
+        <div class="card-body">
+          <button class="btn btn-primary" type="button">See More Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

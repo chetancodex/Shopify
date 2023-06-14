@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="https://cdn.shopify.com/assets/images/logos/shopify_logo_black.png" width="250px" height="50px"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent pull-right">
+        <ul class="nav  justify-content-end " >
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLinkActive="active"routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/products">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active">Images</a> 
+          </li>
+          <li class="nav-item"   *ngIf="accessprofile">
+            <a class="nav-link" routerLink="myprofile"><img src="../../../assets/images/IMG_20200309_132647.jpg"
+              width="30px"></a>
+          <div class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="['/profile']"> Profile Info</a></li>
+              <li><a class="dropdown-item" routerLink="shopping-cart">Orders</a></li>
+              <li><a class="dropdown-item" routerLink="wishlist">Wishlist</a></li>
+              <li><a class="dropdown-item" routerLink="notification">Notifications</a></li>
+              <li><a class="dropdown-item" >Logout</a></li>
+          </div>
+          </li><br>
+        <li class="nav-item" (click)="goToCart()" style="cursor:pointer">
+          <a class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16" *ngIf="accessprofile">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg></a>
+        </li>
+        </ul>
+        
+    </div>
+    <button class="btn btn-outline-success" type="button" (click)="goToLogin()" *ngIf="!accessprofile">Login</button>
+    </div>
+  </nav>

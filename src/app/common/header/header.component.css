@@ -1,0 +1,13 @@
+#pull-right{
+    justify-content: end;
+    margin-right: 20px;
+}
+#profile{
+    margin-top: 5px;
+    margin-right: 5px;
+}
+#cart{
+    font-size: 10px;
+    color:blue;
+    margin-right: 5px ;
+}
