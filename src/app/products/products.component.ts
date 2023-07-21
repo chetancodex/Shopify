@@ -14,6 +14,9 @@ export class ProductsComponent implements OnInit {
   products: Product[] = [];
   collapsing = true;
   productApiData:Product[] = [];
+  product !: Product;
+  id!: number
+
 
   constructor(
     private router: Router,
@@ -37,5 +40,8 @@ export class ProductsComponent implements OnInit {
         this.occur = true;
       }
     });
+  }
+  pushIdOnParams(i : number) {
+
   }
 }

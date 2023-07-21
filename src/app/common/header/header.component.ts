@@ -37,10 +37,6 @@ ngOnInit(){
   this.loginService.getLogin().subscribe((data)=>{
     this.accessprofile = data
   }) 
- setTimeout((log : any)=>{
-  log =  console.log(this.router.url)
- 
- },5000) 
  
 }
 }

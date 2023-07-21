@@ -7,12 +7,14 @@ import { Product } from '../Interfaces/product-interface';
   styleUrls: ['./single-product.component.css']
 })
 export class SingleProductComponent {
-  singleProductData:Product[] = []
+  singleProductData:any;
 constructor(private singleProductApi: SingleProductApiService){
   this.singleProductApi.getSingleProductsDetails().subscribe(res => {
     this.singleProductData = res.products
     console.log(this.singleProductData)
   })
 }
+product!: Product;
+id!:string;
 
 }

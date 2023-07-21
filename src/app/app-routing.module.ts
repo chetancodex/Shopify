@@ -19,17 +19,17 @@ import { SingleProductComponent } from './single-product/single-product.componen
 
 const routes: Routes = [
   { path: "" ,component: HomeComponent, },
-  {path: "products", component: ProductsComponent },
-  {path:"products/:id", component:SingleProductComponent},
+  {path: "products", component: ProductsComponent},
+  {path:"products/:id", component: SingleProductComponent },
   {path:"login",component : LoginComponent},
   {path:"signup",component: SignupComponent},
   {path:"side-nav" ,component: SidenavComponent},
   {path:"myprofile", component:MyProfileComponent,canActivate:[AuthGuard] , children:[
-          {path:'profile', component:ProfileInfoComponent},
-          {path:'address', component:ManageAddressComponent},
-          {path:'rewards',component:MyRewardsComponent},
+          {path:'profile', component:ProfileInfoComponent },
+          {path:'address', component:ManageAddressComponent },
+          {path:'rewards',component:MyRewardsComponent },
           {path:'notifications',component:NotificationsComponent},
-          {path:'review', component:ReviewRatingComponent},
+          {path:'review', component:ReviewRatingComponent },
           {path:'saved-cards', component:SavedCardsComponent},
           {path:'shopping-cart',component:ShoppingCartComponent},
           {path:'wishlist',component:WishlistComponent},
