@@ -26,7 +26,6 @@ this.router.navigate(["login"])
 }
 goToCart(){
   this.router.navigate(['myprofile/shopping-cart'])
-
 }
 
 

@@ -10,7 +10,7 @@ import { ProductStorageService } from 'src/app/Storage/products-storage';
 export class ShoppingCartComponent {
   cartProducts: Product[] = []
 constructor(private productsData: ProductStorageService){
-  this.cartProducts = this.productsData.getAllSimilarProducts()
+  // this.cartProducts = this.productsData.getAllSimilarProducts()
 }
 
 

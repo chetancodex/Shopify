@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
 
  constructor(private loginService : LoginService){}
   ngOnInit() {
-    this.loginService.onAutoLogin()
+    // this.loginService.onAutoLogin()
     console.log('loginSuccess')
   }
 
