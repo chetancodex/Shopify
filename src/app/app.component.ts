@@ -8,12 +8,9 @@ import { LoginService } from './services/login-service';
 })
 export class AppComponent implements OnInit {
   title = 'shopify';
-  loginSuccess: boolean = false;
 
  constructor(private loginService : LoginService){}
   ngOnInit() {
-    // this.loginService.onAutoLogin()
-    console.log('loginSuccess')
   }
 
 }

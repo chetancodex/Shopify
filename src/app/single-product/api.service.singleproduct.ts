@@ -8,9 +8,5 @@ export class SingleProductApiService{
    constructor(private http:HttpClient){
 
    } 
-   getSingleProductsDetails():Observable<{count:number, products:any}> {
-    let respons= this.http.get<{count:number, products:any}>('http://localhost:3000/products');
-    // console.log(respons);
-    return respons
-   }
+ 
 }
