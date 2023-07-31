@@ -8,9 +8,10 @@ import { LoginService } from './services/login-service';
 })
 export class AppComponent implements OnInit {
   title = 'shopify';
-
+  loginSuccess = false
  constructor(private loginService : LoginService){}
   ngOnInit() {
+     
   }
 
 }

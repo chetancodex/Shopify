@@ -1,13 +1,14 @@
 <div class="form-box">
-    <form class="form">
+    <form class="form" #f="ngForm" (ngSubmit) = "onSignUp(f)">
         <span class="title">Sign up</span>
         <span class="subtitle">Create a free account with your email.</span>
         <div class="form-container">
-          <input type="text" class="input" placeholder="Full Name">
-                <input type="email" class="input" placeholder="Email">
-                <input type="password" class="input" placeholder="Password">
+          <input type="text" class="input" name="firstName"id="firstName"placeholder="FirstName" ngModel>
+          <input type="text" class="input" name="lastName" id="lastName" placeholder="LastName" ngModel>
+                <input type="email" class="input" name="email" id="email" placeholder="Email" ngModel minlength="6" email>
+                <input type="password" class="input" name="password" id="password" placeholder="Password" ngModel minlength="6">
         </div>
-        <button>Sign up</button>
+        <button type="submit" (click) ="onSignUp(f)">Sign up</button>
     </form>
     <div class="form-section">
       <p>Have an account? <a routerLink="/login">Log in</a> </p>
