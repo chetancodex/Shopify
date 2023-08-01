@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
-import { Subject } from 'rxjs';
+import { ActivatedRoute,Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login-service';
 
 

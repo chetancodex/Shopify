@@ -10,10 +10,6 @@ constructor(private http: HttpClient){
 
 }
 
-getUserDetails() {
-    this.http.get('http://localhost:3000/user')
-}
-
 
 ngOnInit() {
     

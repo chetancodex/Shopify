@@ -10,7 +10,6 @@ import { SliderComponent } from './common/slider/slider.component';
 import { SidenavComponent } from './common/sidenav/sidenav.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { ManageAddressComponent } from './myprofile/manage-address/manage-address.component';
 import { MyRewardsComponent } from './myprofile/my-rewards/my-rewards.component';
 import { NotificationsComponent } from './myprofile/notifications/notifications.component';
 import { ProfileInfoComponent } from './myprofile/profile-info/profile-info.component';
@@ -38,7 +37,6 @@ import { SignupComponent } from './signup/signup.component';
     SidenavComponent,
     HomeComponent,
     LoginComponent,
-    ManageAddressComponent,
     MyRewardsComponent,
     NotificationsComponent,
     ProfileInfoComponent,

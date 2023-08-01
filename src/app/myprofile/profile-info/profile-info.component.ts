@@ -4,7 +4,11 @@ import { Form, FormBuilder, NgForm } from '@angular/forms';
 
 interface userdetails {
   username : string,
-  contactNumber : number
+  contactNumber : number,
+  city: string,
+  street: string,
+  houseNumber : number,
+  zipcode: number,
 }
 
 @Component({
@@ -21,10 +25,18 @@ export class ProfileInfoComponent implements OnInit{
   }
 onSubmit(form : NgForm) {
   const username = form.value.username;
-  const contactNumber =  form.value.contactNumber
+  const contactNumber =  form.value.contactNumber;
+  const city = form.value.city;
+  const street = form.value.street;
+  const houseNumber = form.value.houseNumber;
+  const zipcode = form.value.zipcode
   const data = {
     username : username ,
-    contactNumber : contactNumber
+    contactNumber : contactNumber,
+    city : city,
+    street : street,
+    houseNumber: houseNumber,
+    zipcode : zipcode
   }
   this.http.post<userdetails>('http://localhost:3000/userUpdate/userdetails',data).subscribe((res)=>{
     console.log(res)
