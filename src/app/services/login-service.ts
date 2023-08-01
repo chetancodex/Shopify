@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject, tap } from 'rxjs';
-import { User } from '../login/user-model';
+import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
 interface AuthResponseData {
@@ -16,7 +15,7 @@ interface AuthResponseData {
 @Injectable({ providedIn: 'root' })
 export class LoginService {
   private afterLogin = new Subject<boolean>();
-  user = new BehaviorSubject<User | null>(null);
+
 
   constructor(private http: HttpClient, private router: Router) {}
   getLogin() {
@@ -26,8 +25,7 @@ export class LoginService {
     return this.afterLogin;
   }
   onLogout() {
-    this.user.next(null);
     this.router.navigate(['login']);
-    localStorage.removeItem('userData');
+    localStorage.removeItem('token');
   }
 }

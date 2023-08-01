@@ -24,7 +24,7 @@ const routes: Routes = [
   {path:"login",component : LoginComponent},
   {path:"signup",component: SignupComponent},
   {path:"side-nav" ,component: SidenavComponent},
-  {path:"myprofile", component:MyProfileComponent,canActivate:[AuthGuard] , children:[
+  {path:"myprofile", component:MyProfileComponent, canActivate:[AuthGuard] ,children:[
           {path:'profile', component:ProfileInfoComponent },
           {path:'address', component:ManageAddressComponent },
           {path:'rewards',component:MyRewardsComponent },

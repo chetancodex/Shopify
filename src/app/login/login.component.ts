@@ -3,6 +3,7 @@ import { LoginService } from '../services/login-service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Token } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ export class LoginComponent {
   isLoading: boolean = false;
   isError!: string;
   @ViewChild('f') loginForm!: NgForm;
+
 
   constructor(
     private loginService: LoginService,
@@ -37,7 +39,8 @@ export class LoginComponent {
       (responseData) => {
         // Request successful, handle the response here
         console.log(responseData);
-
+         localStorage.setItem("token",responseData.token);
+         console.log(localStorage);
         // Assuming the login was successful, you can navigate to another page
         this.router.navigate(["myprofile"]);
       },
