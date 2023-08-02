@@ -1,39 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login-service';
-
-interface profile {
-  firstName : string,
-  lastName : string,
-  email : string
-}
+import { UserApiService } from 'src/app/myprofile/api.service.user';
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css']
 })
-export class SidenavComponent implements OnInit{
-  name !: string
-  token: string | null = localStorage.getItem('token');
- 
+export class SidenavComponent implements OnInit {
+  username!: string;
   
-  constructor(private loginService: LoginService , private http : HttpClient){
-    console.log(this.token);
-   let response =  this.http.post<profile>('http://localhost:3000/newuser/myprofile', {token : this.token}).subscribe((res)=>{
-      // this.name = res.firstName
-      console.log(res);
-      this.name = res.firstName
-    })
+  constructor(private loginService: LoginService, private http: HttpClient, private user: UserApiService) {
   }
-
 
   ngOnInit() {
+    // Subscribe to name updates
+    this.user.getNameUpdates().subscribe(name => {
+      this.username = name;
+      console.log(this.username);
+    });
   }
- 
-  Logout(){
-    this.loginService.onLogout()
-}
-}
 
-
+  Logout() {
+    this.loginService.onLogout();
+  }
+}

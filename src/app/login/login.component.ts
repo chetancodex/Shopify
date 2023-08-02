@@ -40,14 +40,13 @@ export class LoginComponent {
         // Request successful, handle the response here
         console.log(responseData);
          localStorage.setItem("token",responseData.token);
-         console.log(localStorage);
         // Assuming the login was successful, you can navigate to another page
         this.router.navigate(["myprofile"]);
       },
       (error) => {
         // Request failed, handle the error here
         console.error('Error:', error);
-        this.isError = 'An error occurred while logging in.';
+        this.isError = `Email id doesn't exist or password is incorrect.`;
         this.isLoading = false;
       },
       () => {

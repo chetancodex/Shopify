@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { LoginService } from "../services/login-service";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
     selector : 'app-myprofile',
@@ -7,11 +8,13 @@ import { LoginService } from "../services/login-service";
     styleUrls: ['./myprofile.component.css']
 })
 export class MyProfileComponent {
+    
 cart : boolean = false
-constructor(private loginService: LoginService,){}
+constructor(private loginService: LoginService,private http : HttpClient){
+
 
 
    
 }
 
-
+}

@@ -13,15 +13,13 @@ export class SignupComponent {
 
   }
   onSignUp(form: NgForm) {
-    const firstName = form.value.firstName;
-    const lastName = form.value.lastName;
+    const userName = form.value.userName;
     const email = form.value.email;
     const password = form.value.password;
     
     // Create the data object with email and password
     const data = {
-      firstName : firstName,
-      lastName: lastName,
+      username: userName,
       email: email,
       password: password,
     };
@@ -35,6 +33,7 @@ export class SignupComponent {
 
         // Assuming the login was successful, you can navigate to another page
         this.router.navigate(["myprofile"]);
+        
       },
       (error) => {
         // Request failed, handle the error here
