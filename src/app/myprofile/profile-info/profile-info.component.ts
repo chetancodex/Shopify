@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, NgForm } from '@angular/forms';
 import { UserApiService } from '../api.service.user';
+import { MyProfileComponent } from '../myprofile.component';
 
 interface userdetails {
   username: string;
@@ -18,11 +19,11 @@ interface userdetails {
   styleUrls: ['./profile-info.component.css']
 })
 export class ProfileInfoComponent implements OnInit {
+  detailsubmit = false;
   username!: string;
-  constructor(private fb: FormBuilder, private http: HttpClient, private userApi: UserApiService) {
-    this.userApi.getNameUpdates().subscribe((data) => {
+  constructor(private fb: FormBuilder, private http: HttpClient, private profile: MyProfileComponent) {
+     this.profile.getNameUpdates().subscribe((data) => {
       this.username = data;
-     // Call fetchUserProfileData once we have a valid username
     });
   }
 
@@ -46,6 +47,7 @@ export class ProfileInfoComponent implements OnInit {
     this.http.post<userdetails>('http://localhost:3000/userUpdate/userdetails', data).subscribe(
       (res) => {
         console.log(res);
+        this.detailsubmit = true
       },
       (error) => {
         console.log('Error' + error);

@@ -1,40 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
-import { LoginService } from 'src/app/services/login-service';
-
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  accessprofile: boolean = false;
 
-accessprofile : boolean = false
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
+  ngOnInit() {
+    // Listen for navigation end events to update accessprofile
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.updateAccessProfileFromLocalStorage();
+      }
+    });
 
-
-  constructor(private router: Router,
-              private loginService: LoginService,
-              private route:ActivatedRoute,
-             ){
-    
+    // Initial update
+    this.updateAccessProfileFromLocalStorage();
   }
-goToLogin() {
-this.router.navigate(["login"])
-}
-goToCart(){
-  this.router.navigate(['myprofile/shopping-cart'])
-}
 
+  // Method to navigate to the login page
+  goToLogin() {
+    this.router.navigate(['login']);
+  }
 
-profileaccess(event: any){
-this.accessprofile = true
-}
-ngOnInit(){
-  this.loginService.getLogin().subscribe((data)=>{
-    this.accessprofile = data
-  }) 
- 
-}
+  // Method to navigate to the shopping cart page
+  goToCart() {
+    this.router.navigate(['myprofile/shopping-cart']);
+  }
+
+  private updateAccessProfileFromLocalStorage() {
+    // Update accessprofile based on the current value of 'token'
+    this.accessprofile = !!localStorage.getItem('token');
+  }
 }
