@@ -4,7 +4,7 @@
         <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="{{singleProductData.image}}" class="d-block w-100" alt="...">
+                <img src="{{image}}" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
                 <img src="..." class="d-block w-100" alt="...">
@@ -25,14 +25,14 @@
     </div>
 
 <div class="container">
-    <h3>{{singleProductData.name}}</h3>
-    <p>Product Description</p>
-    <h5>Rating: </h5>
+    <h3>{{name}}</h3>
+    <p>{{description}}</p>
+    <h5>Rating: {{rating}}</h5>
     <hr>
     <ul>
-      <li>Brand : </li>
-      <li>Model Name: </li>
-      <li>Color : </li>
+      <li>Brand : {{brand}} </li>
+      <li>Model Name:{{model}}</li>
+      <li>Color : {{color}}</li>
     </ul>
     <hr>
     <ul>

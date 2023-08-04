@@ -18,8 +18,9 @@ import { SingleProductComponent } from './single-product/single-product.componen
 
 const routes: Routes = [
   { path: "" ,component: HomeComponent, },
-  {path: "products", component: ProductsComponent},
   {path:"products/:id", component: SingleProductComponent },
+  {path: "products", component: ProductsComponent},
+  
   {path:"login",component : LoginComponent},
   {path:"signup",component: SignupComponent},
   {path:"side-nav" ,component: SidenavComponent},

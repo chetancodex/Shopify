@@ -10,26 +10,29 @@ import { ProductApiService } from './api.service.products';
 })
 export class ProductsComponent implements OnInit {
   occur: boolean = false;
-  products: Product[] = [];
-  collapsing = true;
   productApiData: Product[] = [];
-  product!: Product;
-  id!: number;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private productApi: ProductApiService
-  ) {
-    this.productApi.getproducts().subscribe((res) => {
-      this.productApiData = res.products;
-    });
-  }
+  ) {}
+
   ngOnInit() {
     this.route.snapshot.url.some((e) => {
       if (e.path === 'products') {
         this.occur = true;
       }
     });
+
+    this.productApi.getproducts().subscribe((res) => {
+      this.productApiData = res.products;
+    });
   }
+
+  // Remove this method since we are using routerLink to navigate to the single product page
+  // getProductDetails(id: string) {
+  //   console.log(id);
+  //   this.router.navigate(['/products', id]);
+  // }
 }

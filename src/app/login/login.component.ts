@@ -15,7 +15,6 @@ export class LoginComponent {
   isError!: string;
   @ViewChild('f') loginForm!: NgForm;
 
-
   constructor(
     private loginService: LoginService,
     private http: HttpClient,
@@ -25,7 +24,7 @@ export class LoginComponent {
   onLogin(form: NgForm) {
     const email = form.value.email;
     const password = form.value.password;
-    
+
     // Create the data object with email and password
     const data = {
       email: email,
@@ -34,14 +33,13 @@ export class LoginComponent {
 
     // Set isLoading to true to show a loading indicator
     this.isLoading = true;
-    this.http.post<any>('http://localhost:3000/newuser/signin', data)
-    .subscribe(
+    this.http.post<any>('http://localhost:3000/newuser/signin', data).subscribe(
       (responseData) => {
         // Request successful, handle the response here
         console.log(responseData);
-         localStorage.setItem("token",responseData.token);
+        localStorage.setItem('token', responseData.token);
         // Assuming the login was successful, you can navigate to another page
-        this.router.navigate(["myprofile"]);
+        this.router.navigate(['myprofile']);
       },
       (error) => {
         // Request failed, handle the error here

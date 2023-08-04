@@ -10,7 +10,4 @@ export class UserApiService {
   constructor(private http: HttpClient) {
    
   }
-
-  // Expose a method to subscribe to the name updates
- 
 }

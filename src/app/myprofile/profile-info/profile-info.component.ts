@@ -16,20 +16,23 @@ interface userdetails {
 @Component({
   selector: 'app-profile-info',
   templateUrl: './profile-info.component.html',
-  styleUrls: ['./profile-info.component.css']
+  styleUrls: ['./profile-info.component.css'],
 })
 export class ProfileInfoComponent implements OnInit {
   detailsubmit = false;
   username!: string;
-  constructor(private fb: FormBuilder, private http: HttpClient, private profile: MyProfileComponent) {
-     this.profile.getNameUpdates().subscribe((data) => {
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private profile: MyProfileComponent
+  ) {
+    this.profile.getNameUpdates().subscribe((data) => {
       this.username = data;
     });
   }
 
-
-
   onSubmit(form: NgForm) {
+    console.log('yeah')
     const username = this.username;
     const contactNumber = form.value.contactNumber;
     const city = form.value.city;
@@ -42,17 +45,19 @@ export class ProfileInfoComponent implements OnInit {
       city: city,
       street: street,
       houseNumber: houseNumber,
-      zipcode: zipcode
+      zipcode: zipcode,
     };
-    this.http.post<userdetails>('http://localhost:3000/userUpdate/userdetails', data).subscribe(
-      (res) => {
-        console.log(res);
-        this.detailsubmit = true
-      },
-      (error) => {
-        console.log('Error' + error);
-      }
-    );
+    this.http
+      .post<userdetails>('http://localhost:3000/userUpdate/userupdate', data)
+      .subscribe(
+        (res) => {
+          console.log(res);
+          this.detailsubmit = true;
+        },
+        (error) => {
+          console.log('Error' + error);
+        }
+      );
   }
 
   ngOnInit() {}

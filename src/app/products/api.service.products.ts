@@ -8,7 +8,7 @@ export class ProductApiService {
 
   getproducts():Observable<{count:number, products:any}> {
     let respons= this.http.get<{count:number, products:any}>('http://localhost:3000/products');
-    // console.log(respons);
+    console.log(respons);
     return respons
   }
 }
