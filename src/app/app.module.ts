@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
-import { SliderComponent } from './common/slider/slider.component';
 import { SidenavComponent } from './common/sidenav/sidenav.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -33,7 +32,6 @@ import { SignupComponent } from './signup/signup.component';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    SliderComponent,
     SidenavComponent,
     HomeComponent,
     LoginComponent,

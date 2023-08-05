@@ -1,7 +1,6 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Form, FormBuilder, NgForm } from '@angular/forms';
-import { UserApiService } from '../api.service.user';
+import { FormBuilder, NgForm } from '@angular/forms';
 import { MyProfileComponent } from '../myprofile.component';
 
 interface userdetails {
@@ -18,9 +17,16 @@ interface userdetails {
   templateUrl: './profile-info.component.html',
   styleUrls: ['./profile-info.component.css'],
 })
-export class ProfileInfoComponent implements OnInit {
+export class ProfileInfoComponent {
   detailsubmit = false;
+  status = false;
   username!: string;
+  contactNumber!: number;
+  city!: string;
+  street!: string;
+  houseNumber!: number;
+  zipcode!: number;
+
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
@@ -32,7 +38,6 @@ export class ProfileInfoComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log('yeah')
     const username = this.username;
     const contactNumber = form.value.contactNumber;
     const city = form.value.city;
@@ -47,6 +52,7 @@ export class ProfileInfoComponent implements OnInit {
       houseNumber: houseNumber,
       zipcode: zipcode,
     };
+    // Request sent
     this.http
       .post<userdetails>('http://localhost:3000/userUpdate/userupdate', data)
       .subscribe(
@@ -60,5 +66,12 @@ export class ProfileInfoComponent implements OnInit {
       );
   }
 
-  ngOnInit() {}
+  viewStatus() {
+    this.detailsubmit = false;
+    this.status = true;
+  }
+
+  dismiss() {
+    this.detailsubmit = false;  
+  }
 }

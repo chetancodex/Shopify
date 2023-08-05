@@ -1,74 +1,160 @@
-<div class="container" >
-
-<form class="row g-3" #f="ngForm" (ngSubmit)="onSubmit(f)">
+<div class="container">
+  <form class="row g-3" #f="ngForm" (ngSubmit)="onSubmit(f)">
     <div class="col-md-6">
-      <label class="username"for="inputname" class="form-label">Username</label>
-     <p>{{username}}</p> 
+      <label class="username" for="inputname" class="form-label"
+        >Username</label
+      >
+      <p>{{ username }}</p>
     </div>
     <div class="col-12">
       <label for="inputContact" class="form-label">Contact Details</label>
-      <input type="text" name ="contactNumber" class="form-control" id="inputContact" placeholder="" ngModel>
+      <input
+        type="text"
+        name="contactNumber"
+        class="form-control"
+        id="inputContact"
+        placeholder=""
+        ngModel
+        minlength="10"
+        maxlength="10"
+      />
     </div>
     <div class="col-12">
       <label for="inputContact" class="form-label">City</label>
-      <input type="text" name ="city" class="form-control" id="inputcity" placeholder="" ngModel>
+      <input
+        type="text"
+        name="city"
+        class="form-control"
+        id="inputcity"
+        placeholder=""
+        ngModel
+      />
     </div>
     <div class="col-12">
       <label for="inputContact" class="form-label">Street</label>
-      <input type="text" name ="street" class="form-control" id="inputstreet" placeholder="" ngModel>
+      <input
+        type="text"
+        name="street"
+        class="form-control"
+        id="inputstreet"
+        placeholder=""
+        ngModel
+      />
     </div>
     <div class="col-12">
       <label for="inputContact" class="form-label">House Number</label>
-      <input type="number" name ="houseNumber" class="form-control" id="inputContact" placeholder="" ngModel>
+      <input
+        type="text"
+        name="houseNumber"
+        class="form-control"
+        id="inputContact"
+        placeholder=""
+        ngModel
+      />
     </div>
     <div class="col-12">
       <label for="inputContact" class="form-label">Zipcode</label>
-      <input type="number" name ="zipcode" class="form-control" id="inputContact" placeholder="" ngModel>
+      <input
+        type="text"
+        name="zipcode"
+        class="form-control"
+        id="inputContact"
+        placeholder=""
+        ngModel
+        minlength="6"
+        maxlength="6"
+      />
     </div>
 
     <div class="col-12">
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
   </form>
-  <hr>
+  <hr />
+  <!-- <div *ngIf="status">
+    <ul>
+      <li>contact : {{contactNumber}}</li>
+      <li>city : {{city}}</li>
+      <li>houseNumber : {{houseNumber}}</li>
+      <li>street : {{street}}</li>
+      <li>zipcode : {{zipcode}}</li>
+    </ul>
+
+  </div> -->
 
   <div class="dialog-box" *ngIf="detailsubmit">
     <div class="notifications-container">
       <div class="success">
         <div class="flex">
           <div class="flex-shrink-0">
-            <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            <svg
+              class="succes-svg"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              ></path>
             </svg>
           </div>
           <div class="success-prompt-wrap">
-            <p class="success-prompt-heading">Details Saved
-            </p>
-              <div class="success-button-container">
-                <button type="button" class="success-button-main">View status</button>
-                <button type="button" class="success-button-secondary">Dismiss</button>
-              </div>
+            <p class="success-prompt-heading">Details Saved</p>
+            <div class="success-button-container">
+              <button type="button"  (click)="viewStatus()" class="success-button-main">
+                View status
+              </button>
+              <button type="button" class="success-button-secondary" (click)="dismiss()">
+                Dismiss
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div style="margin-top: 20px; border-top: 1px solid rgba(0, 0, 0, 0.05);">
+  <div style="margin-top: 20px; border-top: 1px solid rgba(0, 0, 0, 0.05)">
     <h3>FAQs</h3>
-    <p><b>What happens when I update my email address (or mobile number)?</b></p>
-    <p>Your login email id (or mobile number) changes, likewise. You'll receive all your account related
-        communication on your updated email address (or mobile number).
+    <p>
+      <b>What happens when I update my email address (or mobile number)?</b>
     </p>
-    <p><b>When will my Flipkart account be updated with the new email address (or mobile number)?</b></p>
-    <p> It happens as soon as you confirm the verification code sent to your email (or mobile) and save the
-        changes.</p>
-
-    <p><b> What happens to my existing Flipkart account when I update my email address (or mobile number)?</b>
+    <p>
+      Your login email id (or mobile number) changes, likewise. You'll receive
+      all your account related communication on your updated email address (or
+      mobile number).
     </p>
-    <p> Updating your email address (or mobile number) doesn't invalidate your account. Your account remains
-        fully functional. You'll continue seeing your Order history, saved information and personal details.</p>
+    <p>
+      <b
+        >When will my Flipkart account be updated with the new email address (or
+        mobile number)?</b
+      >
+    </p>
+    <p>
+      It happens as soon as you confirm the verification code sent to your email
+      (or mobile) and save the changes.
+    </p>
 
-    <p><b>Does my Seller account get affected when I update my email address?</b></p>
-    <p> Flipkart has a 'single sign-on' policy. Any changes will reflect in your Seller account also.</p>
-</div>
+    <p>
+      <b>
+        What happens to my existing Flipkart account when I update my email
+        address (or mobile number)?</b
+      >
+    </p>
+    <p>
+      Updating your email address (or mobile number) doesn't invalidate your
+      account. Your account remains fully functional. You'll continue seeing
+      your Order history, saved information and personal details.
+    </p>
+
+    <p>
+      <b>Does my Seller account get affected when I update my email address?</b>
+    </p>
+    <p>
+      Flipkart has a 'single sign-on' policy. Any changes will reflect in your
+      Seller account also.
+    </p>
+  </div>
 </div>

@@ -7,7 +7,6 @@ import { Product } from 'src/app/Interfaces/product-interface';
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent {
-  cartProducts: Product[] = []
 constructor(){
 }
 

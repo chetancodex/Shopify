@@ -1,9 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoginService } from '../services/login-service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Token } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +12,6 @@ import { Token } from '@angular/compiler';
 export class LoginComponent {
   isLoading: boolean = false;
   isError!: string;
-  @ViewChild('f') loginForm!: NgForm;
 
   constructor(
     private loginService: LoginService,
