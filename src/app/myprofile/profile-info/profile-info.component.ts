@@ -54,7 +54,7 @@ export class ProfileInfoComponent {
     };
     // Request sent
     this.http
-      .post<userdetails>('http://localhost:3000/userUpdate/userupdate', data)
+      .post<userdetails>('http://localhost:3360/userUpdate/userDetails', data)
       .subscribe(
         (res) => {
           console.log(res);
@@ -75,3 +75,5 @@ export class ProfileInfoComponent {
     this.detailsubmit = false;  
   }
 }
+// http://localhost:3000/userUpdate/userupdate For MongoDb;
+// http://localhost:3360/userUpdate/userDetails For Mysql

@@ -24,7 +24,7 @@ export class SignupComponent {
 
     // Set isLoading to true to show a loading indicator
     this.http
-      .post<any>('http://localhost:3000/newuser/register', data)
+      .post<any>('http://localhost:3360/user/register', data)
       .subscribe(
         (responseData) => {
           // Request successful, handle the response here
@@ -43,3 +43,5 @@ export class SignupComponent {
       );
   }
 }
+// http://localhost:3000/newuser/register' For MongoDB register;
+// http://localhost:3360/user/register'

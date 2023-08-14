@@ -25,14 +25,12 @@ export class ProductsComponent implements OnInit {
       }
     });
 
-    this.productApi.getproducts().subscribe((res) => {
-      this.productApiData = res.products;
+    this.productApi.getProducts().subscribe((res) => {
+      this.productApiData = res;
+      console.log(res)
     });
   }
-
-  // Remove this method since we are using routerLink to navigate to the single product page
-  // getProductDetails(id: string) {
-  //   console.log(id);
-  //   this.router.navigate(['/products', id]);
-  // }
+  onAddToCart() {
+    
+  }
 }

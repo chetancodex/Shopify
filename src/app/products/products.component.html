@@ -11,7 +11,8 @@
         </div>
         <div class="card-body">
           <!-- Use Angular's routerLink directive to navigate to the single product page -->
-          <a class="btn btn-primary" [routerLink]="['/products', item.id]">See More Details</a>
+          <a class="btn btn-primary" [routerLink]="['/products', item.id]">See More Details</a>&nbsp;
+          <a class="btn btn-success" (click)="onAddToCart()">ADD</a>
         </div>
       </div>
     </div>

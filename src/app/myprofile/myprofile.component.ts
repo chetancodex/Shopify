@@ -22,7 +22,7 @@ export class MyProfileComponent {
   cart: boolean = false;
   constructor(private loginService: LoginService, private http: HttpClient) {
     this.http
-      .post<Profile>('http://localhost:3000/userUpdate/username', {
+      .post<Profile>('http://localhost:3360/userUpdate/username', {
         token: this.token,
       })
       .subscribe((res) => {
@@ -35,3 +35,5 @@ export class MyProfileComponent {
     return this.nameSubject.asObservable();
   }
 }
+// http://localhost:3000/userUpdate/username For MongoDb
+// http://localhost:3360/userUpdate/username For Mysql

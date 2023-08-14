@@ -6,9 +6,11 @@ import { Observable } from 'rxjs';
 export class ProductApiService {
   constructor(private http: HttpClient) {}
 
-  getproducts():Observable<{count:number, products:any}> {
-    let respons = this.http.get<{count:number, products:any}>('http://localhost:3000/products');
-    console.log(respons);
-    return respons
+  getProducts(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:3360/products');
   }
 }
+
+// http://localhost:3360/products For Mysql;
+// http://localhost:3000/products For MongoDb;
+// When MongoDb use this Typecast is required <{count:number, products:any}> 

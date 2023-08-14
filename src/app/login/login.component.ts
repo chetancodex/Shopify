@@ -31,7 +31,7 @@ export class LoginComponent {
 
     // Set isLoading to true to show a loading indicator
     this.isLoading = true;
-    this.http.post<any>('http://localhost:3000/newuser/signin', data).subscribe(
+    this.http.post<any>('http://localhost:3360/user/signIn', data).subscribe(
       (responseData) => {
         // Request successful, handle the response here
         console.log(responseData);
@@ -52,3 +52,5 @@ export class LoginComponent {
     );
   }
 }
+// http://localhost:3000/newuser/signin For mongoDB SignIN
+// http://localhost:3360/user/signIn   For mysql SignIn

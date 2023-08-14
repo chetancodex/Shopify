@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Product } from 'src/app/Interfaces/product-interface';
-
-interface cart {
-  userId : string,
-  products : Product []
+interface Cart {
+  userId : string ,
+  products  : Product[]
 }
 
 @Component({
@@ -13,13 +12,11 @@ interface cart {
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent {
-  Products !: Product[] ; 
-constructor( private http : HttpClient) {
-  this.http.get<cart>('http://localhost:3000/cart').subscribe((res)=> {
-    this.Products = res.products
-  })
-}
-
-
-
+  Products: Product[] = []; // Initialize an empty array
+  
+  constructor(private http: HttpClient) {
+    this.http.get<Cart>('http://localhost:3360/cart').subscribe((res) => {
+      this.Products = res.products; // Assign fetched products to the Products array
+    });
+  }
 }
