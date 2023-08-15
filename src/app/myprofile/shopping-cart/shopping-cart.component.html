@@ -16,15 +16,15 @@
             <th scope="col">Total</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let product of cartProducts;">
           <tr>
-            <th scope="row"><img src="" width="144px" height="96px"></th>
+            <th scope="row"><img src="{{product.image}}" width="144px" height="96px"></th>
             <td><div class="name">
-                <h3> NIKE FREE RN 2019 ID</h3>
-                <p> Far far away, behind the word mountains, far from the countries</p>
+                <h3>{{product.name}}</h3>
+                <p>{{product.description}}</p>
             </div></td>
             <td><div class="price">
-                $4.90
+                {{product.price}}
             </div></td>
             <td>1</td>
             <td>$4.90</td>
