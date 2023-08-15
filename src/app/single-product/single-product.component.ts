@@ -3,6 +3,7 @@ import { Product } from '../Interfaces/product-interface';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { CartService } from '../myprofile/shopping-cart/cartapi';
 
 @Component({
   selector: 'app-single-product',
@@ -17,9 +18,10 @@ export class SingleProductComponent implements OnInit {
   color!: string;
   description!: string;
   brand!:string
-  model!: string
+  model!: string;
+  price !: number
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) { 
+  constructor(private http: HttpClient, private route: ActivatedRoute , private cartService : CartService) { 
   
   }
 
@@ -48,7 +50,8 @@ export class SingleProductComponent implements OnInit {
         this.description = res.description;
         this.brand = res.brand;
         this.color = res.color;
-        this.model = res.modelName
+        this.model = res.modelName;
+        this.price = res.price;
 
       },
       error => {
@@ -59,7 +62,27 @@ export class SingleProductComponent implements OnInit {
   }
 
 
+ 
+
   AddToCart() {
+    if (this.id) {
+      const product: Product = {
+        id: this.id,
+        image: this.image,
+        name: this.name,
+        rating: this.rating,
+        color: this.color,
+        description: this.description,
+        brand: this.brand,
+        modelName: this.model,
+        price: this.price
+      };
+
+      this.cartService.addToCart(product); 
+      console.log('Product added to cart:', this.name);
+    } else {
+      console.error('Invalid product ID');
+    }
 
   }
 };
