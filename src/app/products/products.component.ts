@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../Interfaces/product-interface';
 import { ProductApiService } from './api.service.products';
 import { CartService } from '../myprofile/shopping-cart/cartapi';
+import { HttpClient } from '@angular/common/http';
+import { MyProfileComponent } from '../myprofile/myprofile.component';
 
 @Component({
   selector: 'app-products',
@@ -14,10 +16,12 @@ export class ProductsComponent implements OnInit {
   productApiData: Product[] = [];
 
   constructor(
+    private http : HttpClient,
     private router: Router,
     private route: ActivatedRoute,
     private productApi: ProductApiService,
-    private cartService : CartService
+    private cartService : CartService,
+    private profile : MyProfileComponent
   ) {}
 
   ngOnInit() {
@@ -33,7 +37,6 @@ export class ProductsComponent implements OnInit {
     });
   }
   onAddToCart( product : Product) {
-    this.cartService.addToCart(product);
-    console.log('Added to cart:', product);
+  //  this.http.post('http://localhost:3360/cart/create',{username : this.profile.name,productId : product.id , quantity : 1})
   }
 }
