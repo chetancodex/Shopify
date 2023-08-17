@@ -4,7 +4,8 @@ import { Product } from '../Interfaces/product-interface';
 import { ProductApiService } from './api.service.products';
 import { CartService } from '../myprofile/shopping-cart/cartapi';
 import { HttpClient } from '@angular/common/http';
-import { MyProfileComponent } from '../myprofile/myprofile.component';
+import { MyProfileService } from '../myprofile/profileapiservice';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-products',
@@ -14,15 +15,14 @@ import { MyProfileComponent } from '../myprofile/myprofile.component';
 export class ProductsComponent implements OnInit {
   occur: boolean = false;
   productApiData: Product[] = [];
+  username ! : string
 
   constructor(
     private http : HttpClient,
-    private router: Router,
     private route: ActivatedRoute,
     private productApi: ProductApiService,
-    private cartService : CartService,
-    private profile : MyProfileComponent
-  ) {}
+    private MyProfileService : MyProfileService
+  ) { this.username = this.MyProfileService.name}
 
   ngOnInit() {
     this.route.snapshot.url.some((e) => {
@@ -36,7 +36,15 @@ export class ProductsComponent implements OnInit {
       console.log(res)
     });
   }
-  onAddToCart( product : Product) {
-  //  this.http.post('http://localhost:3360/cart/create',{username : this.profile.name,productId : product.id , quantity : 1})
+  onAddToCart(product :Product):Observable<any> {
+    console.log('item added to cart');
+     return this.http.post<any>('http://localhost:3360/cart/create',{username : this.username,productId : product.id , quantity : 1});
+  }
+
+  onAddToCartCall(product:Product){
+    this.onAddToCart(product).subscribe((res) => {
+
+      console.log(res)
+    });
   }
 }

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CartService } from '../myprofile/shopping-cart/cartapi';
+import { MyProfileService } from '../myprofile/profileapiservice';
 
 @Component({
   selector: 'app-single-product',
@@ -21,7 +22,7 @@ export class SingleProductComponent implements OnInit {
   model!: string;
   price !: number
 
-  constructor(private http: HttpClient, private route: ActivatedRoute , private cartService : CartService) { 
+  constructor(private http: HttpClient, private route: ActivatedRoute , private profileService : MyProfileService) { 
   
   }
 
@@ -64,28 +65,10 @@ export class SingleProductComponent implements OnInit {
 
  
 
-  AddToCart() {
-    if (this.id) {
-      const product: Product = {
-        id: this.id,
-        image: this.image,
-        name: this.name,
-        rating: this.rating,
-        color: this.color,
-        description: this.description,
-        brand: this.brand,
-        modelName: this.model,
-        price: this.price
-      };
-
-      this.cartService.addToCart(product); 
-      console.log('Product added to cart:', this.name);
-    } else {
-      console.error('Invalid product ID');
-    }
-
-  }
+  AddToCart( ) {
+    this.http.post('http://localhost:3360/cart/create',{username : this.profileService.name,productId : this.id , quantity : 1});
 };
+}
 
 
 // http://localhost:3000/products/${id} For MongoDB

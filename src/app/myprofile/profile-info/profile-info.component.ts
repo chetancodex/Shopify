@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { MyProfileComponent } from '../myprofile.component';
+import { MyProfileService } from '../profileapiservice';
 
 interface userdetails {
   username: string;
@@ -30,9 +31,9 @@ export class ProfileInfoComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private profile: MyProfileComponent
+    private profileService : MyProfileService
   ) {
-    this.profile.getNameUpdates().subscribe((data) => {
+    this.profileService.getNameUpdates().subscribe((data) => {
       this.username = data;
     });
   }

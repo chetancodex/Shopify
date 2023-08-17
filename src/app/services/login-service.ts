@@ -8,5 +8,6 @@ export class LoginService {
   onLogout() {
     this.router.navigate(['login']);
     localStorage.clear();
+    console.log("Local storage cleared")
   }
 }

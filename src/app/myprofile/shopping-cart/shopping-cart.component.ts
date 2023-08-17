@@ -15,7 +15,8 @@ interface Cart {
 export class ShoppingCartComponent {
   cartProducts: Product[] = []; // Initialize an empty array
   
-  constructor(private http: HttpClient , private cartService : CartService) {
-   this.cartProducts = this.cartService.getCartItems()
+  constructor(private http: HttpClient , private cartService : CartService ) {
+   this.cartProducts = this.cartService.cartItems
+   console.log(this.cartService.cartItems)
   }
 }

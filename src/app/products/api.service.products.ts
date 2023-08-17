@@ -7,7 +7,6 @@ export class ProductApiService {
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<any[]> {
-    console.log('products');
     return this.http.get<any[]>('http://localhost:3360/products');
   }
 }

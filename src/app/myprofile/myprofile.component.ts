@@ -1,39 +1,23 @@
-import { Component, Input } from '@angular/core';
-import { LoginService } from '../services/login-service';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { MyProfileService } from './profileapiservice';  // Replace with the correct path
 
-interface Profile {
-  username: string;
-  email: string;
-}
 @Component({
   selector: 'app-myprofile',
   templateUrl: './myprofile.component.html',
   styleUrls: ['./myprofile.component.css'],
 })
-export class MyProfileComponent {
-  public token: string | null = localStorage.getItem('token');
-  public name: string = 'Hello';
-
-  private nameSubject: BehaviorSubject<string> = new BehaviorSubject<string>(
-    this.name
-  );
+export class MyProfileComponent implements OnInit {
+  public username: string = 'Hello';
   cart: boolean = false;
-  constructor(private loginService: LoginService, private http: HttpClient) {
-    this.http
-      .post<Profile>('http://localhost:3360/userUpdate/username', {
-        token: this.token,
-      })
-      .subscribe((res) => {
-        this.name = res.username;
-        // Notify subscribers about the updated name
-        this.nameSubject.next(this.name);
-      });
+
+  constructor(private myProfileService: MyProfileService) {
+    this.myProfileService.getNameUpdates().subscribe((name) => {
+      this.username = name;
+    });
   }
-  getNameUpdates() {
-    return this.nameSubject.asObservable();
+
+  ngOnInit() {
+    // Subscribe to name updates from the service
+ 
   }
 }
-// http://localhost:3000/userUpdate/username For MongoDb
-// http://localhost:3360/userUpdate/username For Mysql
