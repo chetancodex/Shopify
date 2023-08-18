@@ -1,22 +1,22 @@
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
 import { Product } from 'src/app/Interfaces/product-interface';
 import { CartService } from './cartapi';
-interface Cart {
-  userId : string ,
-  products  : Product[]
-}
 
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css']
 })
-export class ShoppingCartComponent {
-  cartProducts: Product[] = []; // Initialize an empty array
-  
-  constructor(private http: HttpClient , private cartService : CartService ) {
-   this.cartProducts = this.cartService.cartItems
-   console.log(this.cartService.cartItems)
+export class ShoppingCartComponent implements OnInit {
+  cartProducts: Product[] = [];
+
+  constructor(private http: HttpClient, private cartService: CartService) {}
+
+  ngOnInit() {
+    // Subscribe to changes in cartItems$
+    this.cartService.cartItems.subscribe((cartItems) => {
+      this.cartProducts = cartItems;
+    });
   }
 }

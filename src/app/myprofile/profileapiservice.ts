@@ -34,5 +34,7 @@ export class MyProfileService {
   }
   getNameUpdates() {
     return this.nameSubject.asObservable();
-  }
+  };
+ 
+ 
 }

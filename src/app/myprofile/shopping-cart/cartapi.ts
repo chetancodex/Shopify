@@ -1,58 +1,52 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Product } from '../../Interfaces/product-interface';
 import { HttpClient } from '@angular/common/http';
 import { MyProfileService } from '../profileapiservice';
-
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CartService implements OnInit {
-  username !:string
- 
-
-  cartItems: Product[] = [];
-  cartDetails: any[] = [];
+export class CartService {
+  private username: string = '';
+  private cartItemsSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+  public cartItems = this.cartItemsSubject.asObservable();
 
   constructor(private http: HttpClient, private profile: MyProfileService) {
-   
-     this.profile.getNameUpdates().subscribe((name)=> {
-      console.log(name)
-      this.username = name
-     });
-     setTimeout(() => {
+    this.profile.getNameUpdates().subscribe((name) => {
+      this.username = name;
       this.fetchCartItems();
-    }, 5000);
-     
+    });
   }
 
   private fetchCartItems(): void {
-    console.log(this.username);
-    this.http.post<any>('http://localhost:3360/cart/getcart', { username: this.username })
-      .subscribe((data) => {
-        data.forEach((element: any)  => {
-          this.cartDetails.push(element)
+    if (this.username) {
+      this.http
+        .post<any>('http://localhost:3360/cart/getcart', { username: this.username })
+        .subscribe((data) => {
+          const productIds = data.map((cartDetail: any) => cartDetail.productId);
+          this.fetchProductDetails(productIds);
         });
-        this.cartDetails.forEach(cartDetail => {
-          this.fetchProductDetails(cartDetail.productId);
-        });
-
-     
-      });
+    }
   }
 
-  private fetchProductDetails(productId: number): void {
-    console.log(productId)
-    this.http.get<Product>(`http://localhost:3360/products/${productId}`)
-      .subscribe((product) => {
-        this.cartItems.push(product);
-      });
+  private fetchProductDetails(productIds: number[]): void {
+    const products: Product[] = [];
+
+    productIds.forEach((productId) => {
+      this.http
+        .get<Product>(`http://localhost:3360/products/${productId}`)
+        .subscribe((product) => {
+          products.push(product);
+          this.cartItemsSubject.next(products); // Update the BehaviorSubject with the latest products
+        });
+    });
   }
 
   getCartItems(): Product[] {
-    return this.cartItems;
+    return this.cartItemsSubject.value;
   }
-  ngOnInit() {
-   
+  clearCart() {
+    this.cartItemsSubject.next([]); // Clear the cart items by emitting an empty array
   }
 }

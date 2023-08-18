@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../Interfaces/product-interface';
 import { ProductApiService } from './api.service.products';
-import { CartService } from '../myprofile/shopping-cart/cartapi';
 import { HttpClient } from '@angular/common/http';
 import { MyProfileService } from '../myprofile/profileapiservice';
 import { Observable } from 'rxjs/internal/Observable';
@@ -15,7 +14,7 @@ import { Observable } from 'rxjs/internal/Observable';
 export class ProductsComponent implements OnInit {
   occur: boolean = false;
   productApiData: Product[] = [];
-  username ! : string
+  username !: string
 
   constructor(
     private http : HttpClient,
@@ -46,5 +45,8 @@ export class ProductsComponent implements OnInit {
 
       console.log(res)
     });
+  }
+  clearname() {
+    this.username = ""
   }
 }
