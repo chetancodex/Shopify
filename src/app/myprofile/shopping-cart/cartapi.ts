@@ -5,10 +5,10 @@ import { MyProfileService } from '../profileapiservice';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class CartService {
-  private username: string = '';
+  public username: string = '';
   private cartItemsSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
   public cartItems = this.cartItemsSubject.asObservable();
 
@@ -16,10 +16,11 @@ export class CartService {
     this.profile.getNameUpdates().subscribe((name) => {
       this.username = name;
       this.fetchCartItems();
+    
     });
   }
 
-  private fetchCartItems(): void {
+  public fetchCartItems(): void {
     if (this.username) {
       this.http
         .post<any>('http://localhost:3360/cart/getcart', { username: this.username })
@@ -48,5 +49,8 @@ export class CartService {
   }
   clearCart() {
     this.cartItemsSubject.next([]); // Clear the cart items by emitting an empty array
+  }
+  refreshCartItems() {
+    this.fetchCartItems();
   }
 }
