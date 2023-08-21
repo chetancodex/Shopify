@@ -2,7 +2,8 @@
   <img
     src="../../assets/images/illustration.jpg"
     class="image-responsive"
-    width="720px"
+    width="820px"
+    height="520px"
   />
 </div>
 <div class="form-container">
@@ -12,10 +13,10 @@
   <div *ngIf="isLoading">
     <app-loading-spinner style="text-align: center"></app-loading-spinner>
   </div>
-  <p class="title">Login</p>
+  <p class="title">Login For Shop</p>
   <form class="form" #f="ngForm" (ngSubmit)="onLogin(f)" *ngIf="!isLoading">
     <div class="input-group">
-      <label for="username">Email</label>
+
       <input
         type="text"
         name="email"
@@ -26,9 +27,8 @@
         minlength="6"
         email
       />
-    </div>
-    <div class="input-group">
-      <label for="password">Password</label>
+    </div><br>
+    <div class="input-group" style="width: 400px">
       <input
         type="password"
         name="password"
@@ -39,14 +39,14 @@
         minlength="6"
       />
       <div class="forgot">
-        <a rel="noopener noreferrer" href="#">Forgot Password ?</a>
+        <a rel="noopener noreferrer" style="font-size: 14px; font-style: san-serif;">Forgot Password ?</a>
       </div>
-    </div>
-    <button class="sign" type="submit" [disabled]="!f.valid">Login</button>
-  </form>
+    </div>&nbsp;<br>  
+    <button class="sign" id="loginButton" type="submit" [disabled]="!f.valid">Login</button>
+  </form><br>
 
-  <p class="signup">
+  <p class="signup" style="font-size: 16px;">
     Don't have an account?
-    <a rel="noopener noreferrer" routerLink="/signup" class="">Sign Up</a>
+    <a rel="noopener noreferrer" routerLink="/signup" class="" style="font-size: 16px; font-weight: 600;">Sign Up</a>
   </p>
 </div>

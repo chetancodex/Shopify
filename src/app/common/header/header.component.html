@@ -1,19 +1,19 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg bg-light" id="navbar">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img src="https://cdn.shopify.com/assets/images/logos/shopify_logo_black.png" width="250px" height="50px"></a>
+      <a class="navbar-brand"><img src="../../../assets/images/logo.svg" width="300px" height="50px"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent pull-right">
         <ul class="nav  justify-content-end " >
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLinkActive="active"routerLink="/">Home</a>
+            <a class="nav-link active" aria-current="page" style="color:#198754; font-weight: 550;" routerLinkActive="active"routerLink="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="/products">Products</a>
+            <a class="nav-link" style="color:#198754;font-weight: 550;"routerLinkActive="active" routerLink="/products">Products</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active">Images</a> 
+            <a class="nav-link" routerLinkActive="active" style="color:#198754;font-weight: 550;">Images</a> 
           </li>
           <li class="nav-item"   *ngIf="accessprofile">
             <a class="nav-link" routerLink="myprofile"><img src="../../../assets/images/IMG_20200309_132647.jpg"
@@ -34,6 +34,6 @@
         </ul>
         
     </div>
-    <button class="btn btn-outline-success" type="button" (click)="goToLogin()" *ngIf="!accessprofile">Login</button>
+    <button class="btn btn-outline-success" type="button" style="font-weight: 600;"(click)="goToLogin()" *ngIf="!accessprofile">Login</button>
     </div>
   </nav>

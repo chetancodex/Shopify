@@ -1,10 +1,11 @@
 .form-box {
-    max-width: 300px;
-    background: #f1f7fe;
+    max-width: 500px;
+    background:  #96bf48;
     overflow: hidden;
     border-radius: 16px;
     color: #010101;
     text-align: center;
+    display:inline-block
   }
   
   .form {
@@ -24,14 +25,14 @@
   
   .subtitle {
     font-size: 1rem;
-    color: #666;
+    color: #191717;
   }
   
   /*Inputs box*/
   .form-container {
     overflow: hidden;
     border-radius: 8px;
-    background-color: #fff;
+    background-color: #111827;
     margin: 1rem 0 .5rem;
     width: 100%;
   }
@@ -50,13 +51,13 @@
   .form-section {
     padding: 16px;
     font-size: .85rem;
-    background-color: #e0ecfb;
+    background-color: #96bf48;
     box-shadow: rgb(0 0 0 / 8%) 0 -1px;
   }
   
   .form-section a {
     font-weight: bold;
-    color: #0066ff;
+    color: #111827;
     transition: color .3s ease;
   }
   
@@ -67,7 +68,7 @@
   
   /*Button*/
   .form button {
-    background-color: #0066ff;
+    background-color: #111827;
     color: #fff;
     border: 0;
     border-radius: 24px;
@@ -81,3 +82,9 @@
   .form button:hover {
     background-color: #005ce6;
   }
+  .box {
+  height : 100px;
+  max-width: 550px;
+  display: inline-flex;
+  }
+ 

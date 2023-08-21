@@ -1,15 +1,22 @@
+<div class="container" style="max-height: 80vh;">
+
 <div class="form-box">
     <form class="form" #f="ngForm" (ngSubmit) = "onSignUp(f)">
         <span class="title">Sign up</span>
-        <span class="subtitle">Create a free account with your email.</span>
+        <span class="subtitle" style="font-family:sans-serif; font-weight: 600; font-size: 21px;">Create a free account On Shopify</span>
         <div class="form-container">
-          <input type="text" class="input" name="userName"id="userName"placeholder="userName" ngModel>
-                <input type="email" class="input" name="email" id="email" placeholder="Email" ngModel minlength="6" email>
+          <input type="text" class="input" name="userName"id="userName"placeholder="Username" ngModel><br>
+                <input type="email" class="input" name="email" id="email" placeholder="Email" ngModel minlength="6" email><br>
                 <input type="password" class="input" name="password" id="password" placeholder="Password" ngModel minlength="6">
         </div>
         <button type="submit">Sign up</button>
     </form>
     <div class="form-section">
-      <p>Have an account? <a routerLink="/login">Log in</a> </p>
+      <p style="font-size: 16px;">Have an account? <a routerLink="/login">Log in</a> </p>
     </div>
     </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="box">
+    <img class="" style="width : 920px;height : 530px"src="../../assets/images/new.jpg">
+  </div>
+  </div>
