@@ -24,6 +24,9 @@ import { LoadingSpinner } from './services/loading-spinner/loading-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionModule } from './lib/acoordian/accordian.module';
 import { SignupComponent } from './signup/signup.component';
+import { StoreModule, provideStore } from '@ngrx/store';
+// import { productReducer } from './store/products.reducer';
+import { EffectsModule } from '@ngrx/effects';
 
 
 
@@ -54,7 +57,11 @@ import { SignupComponent } from './signup/signup.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AccordionModule
+    AccordionModule,
+    StoreModule.forRoot({
+      // products : productReducer
+    }),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent],

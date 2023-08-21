@@ -1,6 +1,6 @@
 .form-box {
     max-width: 500px;
-    background:  #96bf48;
+    background:  #8cbb35c8;
     overflow: hidden;
     border-radius: 16px;
     color: #010101;
@@ -32,7 +32,7 @@
   .form-container {
     overflow: hidden;
     border-radius: 8px;
-    background-color: #111827;
+    background-color: #111827f3;
     margin: 1rem 0 .5rem;
     width: 100%;
   }

@@ -2,7 +2,9 @@
     display: flex;
 
 }
-
+.height {
+    height : 57vh
+}
 .inline-block{
     display: inline-block;
 }

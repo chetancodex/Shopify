@@ -1,10 +1,12 @@
 .bf{
-    border-left : 7px solid purple
+    border-left : 7px solid #111827
 }
 .pr{
    align-self: center;
- 
+     background-color: #111827e4;
+     color: green;
     float: right;
+    font-weight: 600;
 }
 span{
     font-size: 40px

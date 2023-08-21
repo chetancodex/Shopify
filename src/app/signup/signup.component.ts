@@ -9,8 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent {
-  constructor(private http: HttpClient, private router: Router) {}
+  
+  constructor(private http: HttpClient, private router: Router) {
+    
+  }
   onSignUp(form: NgForm) {
+    if(form.invalid) {
+      return;
+    }
     const userName = form.value.userName;
     const email = form.value.email;
     const password = form.value.password;

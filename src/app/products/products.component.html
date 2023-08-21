@@ -4,10 +4,12 @@
   </div>
   <div class="container-lg grid-4-cols">
     <div class="container" *ngFor="let item of productApiData">
-      <div class="card" style="width: 18rem">
-        <img src="{{ item.image }}" class="image-responsive" style="width: 280px; height: 180px" alt="..." />
-        <div class="card-body">
+      <div class="card style" style="width: 18rem">
+        <img src="{{ item.image }}" class="image-responsive" style="width: 280px; height: 170px" alt="..." />
+        <!-- <img src="{{ item.image | async }}" class="image-responsive" style="width: 280px; height: 180px" alt="..." /> for Ngstore -->
+        <div class="card-body" >
           <h5 class="card-title">{{ item.name }}</h5>
+          <!-- <h5 class="card-title">{{ item.name | async }}</h5> for Ngstore --> 
         </div>
         <div class="card-body">
           <!-- Use Angular's routerLink directive to navigate to the single product page -->
