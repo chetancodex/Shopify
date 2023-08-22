@@ -25,8 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionModule } from './lib/acoordian/accordian.module';
 import { SignupComponent } from './signup/signup.component';
 import { StoreModule, provideStore } from '@ngrx/store';
-// import { productReducer } from './store/products.reducer';
 import { EffectsModule } from '@ngrx/effects';
+import { productReducer } from './products/state/reducer';
 
 
 
@@ -59,7 +59,7 @@ import { EffectsModule } from '@ngrx/effects';
     BrowserAnimationsModule,
     AccordionModule,
     StoreModule.forRoot({
-      // products : productReducer
+      products : productReducer
     }),
     EffectsModule.forRoot([])
   ],

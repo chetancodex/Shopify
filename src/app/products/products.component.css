@@ -20,8 +20,19 @@
     width:300px
 }
 .style {
-    background-color: #111827ef;
+    background-color: #0e141ef5;
 }
 .card-title {
-    background-color: aliceblue;
+    background-color: #fff;
+    border-radius: 10%;
+
+}
+.but {
+    background-color: #0e141e !important;
+    color : #32c766;
+}
+.if {
+    background-color: #fff;
+    color : #222;
+    font-weight: 600;
 }

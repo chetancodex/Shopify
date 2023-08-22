@@ -7,13 +7,13 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent pull-right">
         <ul class="nav  justify-content-end " >
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" style="color:#198754; font-weight: 550;" routerLinkActive="active"routerLink="/">Home</a>
+            <a class="nav-link active" aria-current="page" style="color:#32c766; font-weight: 550;" routerLinkActive="active"routerLink="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="color:#198754;font-weight: 550;"routerLinkActive="active" routerLink="/products">Products</a>
+            <a class="nav-link" style="color:#32c766;font-weight: 550;"routerLinkActive="active" routerLink="/products">Products</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" style="color:#198754;font-weight: 550;">Images</a> 
+            <a class="nav-link" routerLinkActive="active" style="color:#32c766;font-weight: 550;">Images</a> 
           </li>
           <li class="nav-item"   *ngIf="accessprofile">
             <a class="nav-link" routerLink="myprofile"><img src="../../../assets/images/IMG_20200309_132647.jpg"
@@ -34,6 +34,6 @@
         </ul>
         
     </div>
-    <button class="btn btn-outline-success" type="button" style="font-weight: 600;"(click)="goToLogin()" *ngIf="!accessprofile">Login</button>
+    <button class="btn btn-outline-success" type="button" style="color:#32c766;font-weight: 600;"(click)="goToLogin()" *ngIf="!accessprofile">Login</button>
     </div>
   </nav>

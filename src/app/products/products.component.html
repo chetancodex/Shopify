@@ -3,7 +3,7 @@
     <!-- Add content here based on your requirement -->
   </div>
   <div class="container-lg grid-4-cols">
-    <div class="container" *ngFor="let item of productApiData">
+    <div class="container"   *ngFor="let item of products.products">
       <div class="card style" style="width: 18rem">
         <img src="{{ item.image }}" class="image-responsive" style="width: 280px; height: 170px" alt="..." />
         <!-- <img src="{{ item.image | async }}" class="image-responsive" style="width: 280px; height: 180px" alt="..." /> for Ngstore -->
@@ -13,8 +13,8 @@
         </div>
         <div class="card-body">
           <!-- Use Angular's routerLink directive to navigate to the single product page -->
-          <a class="btn btn-primary" [routerLink]="['/products', item.id]">See More Details</a>&nbsp;
-          <a class="btn btn-success" (click)="onAddToCartCall(item)">ADD</a>
+          <a class="btn btn-primary if" [routerLink]="['/products', item.id]">See More Details</a>&nbsp;
+          <a class="btn btn-success but" (click)="onAddToCartCall(item)">ADD</a>
         </div>
       </div>
     </div>

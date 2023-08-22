@@ -2,7 +2,7 @@
 <div class="container-fluid flex height">
     <div class="container-sm inline-block">
         <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
+            <div class="carousel-inner ">
               <div class="carousel-item active">
                 <img src="{{image}}" class="d-block w-100" alt="..." style="width : 520px; height : 500px">
               </div>
@@ -24,25 +24,25 @@
           </div>
     </div>
 
-<div class="container">
-    <h3>{{name}}</h3>
-    <p>{{description}}</p>
-    <h5>Rating: {{rating}}</h5>
+<div class="container index">
+    <h1 class="up">{{name}}</h1>
+    <p class="up">{{description}}</p>
+    <h5 class="up">Rating: {{rating}}</h5>
     <hr>
-    <ul>
-      <li>Brand : {{brand}} </li>
-      <li>Model Name:{{model}}</li>
-      <li>Color : {{color}}</li>
+    <ul class="bad">
+      <li class="up">Brand : {{brand}} </li>
+      <li class="up">Model Name:{{model}}</li>
+      <li class="up">Color : {{color}}</li>
     </ul>
     <hr>
-    <ul>
-        <li>i don't know</li>
-        <li>will update in api</li>
-        <li>in node rest api</li>
-        <li> through the postman</li>
-        <li>to the frontend</li>
+    <ul class="bad">
+        <li class="up">i don't know</li>
+        <li class="up">will update in api</li>
+        <li class="up">in node rest api</li>
+        <li class="up"> through the postman</li>
+        <li class="up">to the frontend</li>
     </ul>
-    <a class="btn btn-success" (click)="AddToCart()">ADD TO CART</a>  
+    <a class="btn btn-success up but" (click)="AddToCart()">ADD TO CART</a>  
 </div>
 
 </div>
