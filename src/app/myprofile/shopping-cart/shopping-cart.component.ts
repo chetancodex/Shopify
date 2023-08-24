@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from 'src/app/Interfaces/product-interface';
-import { CartService } from './cartapi';
+import { CartService } from './api.service.cart';
 import {Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { loadCart, loadCartSuccess } from './state/action';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -10,24 +13,28 @@ import {Router } from '@angular/router';
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit {
-  cartProducts: Product[] = [];
+  cartProducts:any;
+  cartProducts$ !: Observable<Product[]>
 
-  constructor(private http: HttpClient, private cartService: CartService , router : Router) {
-    this.cartService.cartItems.subscribe((cartItems) => {
-      this.cartProducts = cartItems;
-    });
+  constructor(private http: HttpClient, private cartService: CartService , router : Router , private store : Store<{cart : Product[] }>) {
+    // this.cartService.cartItems$.subscribe((cartItems) => {
+    //   this.cartProducts = cartItems;
+    // });
+    this.cartProducts$ =  this.store.select('cart')
   }
 
   ngOnInit() {
-    // Subscribe to changes in cartItems$
- 
+    this.store.dispatch(loadCart());
   }
+
+
+
+
   deleteProduct(product :Product) {
    const data = {
     username : this.cartService.username,
     productId : product.id
    }
-   console.log(this.cartService.username)
    this.http.post('http://localhost:3360/cart/delete',data).subscribe((res) => {
     console.log({message : "Product deleted Success"});
     this.cartService.refreshCartItems()

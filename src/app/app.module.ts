@@ -27,6 +27,9 @@ import { SignupComponent } from './signup/signup.component';
 import { StoreModule, provideStore } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { productReducer } from './products/state/reducer';
+import { cartReducer } from './myprofile/shopping-cart/state/reducer';
+import { ProductEffects } from './products/state/effects';
+import { CartEffects } from './myprofile/shopping-cart/state/effect';
 
 
 
@@ -59,9 +62,10 @@ import { productReducer } from './products/state/reducer';
     BrowserAnimationsModule,
     AccordionModule,
     StoreModule.forRoot({
-      products : productReducer
+      products : productReducer,
+      cart : cartReducer
     }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([ProductEffects,CartEffects])
   ],
   providers: [],
   bootstrap: [AppComponent],

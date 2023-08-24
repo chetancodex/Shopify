@@ -11,32 +11,29 @@ import { getAllProducts } from './state/action';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
   occur: boolean = false;
-  products !:any 
-  products$ !: Observable<Product[]>; // For Ngrx Store
-  username !: string
+  products!: any;
+  products$!: Observable<Product[]>; // For Ngrx Store
+  username!: string;
 
   constructor(
-    private http : HttpClient,
+    private http: HttpClient,
     private route: ActivatedRoute,
     private productApi: ProductApiService,
-    private MyProfileService : MyProfileService,
-    private store: Store<{products : Product[]}>
-  ) { this.username = this.MyProfileService.name ,
-      this.products$ = this.store.select('products')
-    console.log(this.products$)}
+    private MyProfileService: MyProfileService,
+    private store: Store<{ products: Product[] }>
+  ) {
+    (this.username = this.MyProfileService.name),
+      (this.products$ = this.store.select('products'));
+  }
 
   ngOnInit() {
-    this.productApi.getProducts().subscribe((res) => {
-      console.log(res)
-      this.store.dispatch(getAllProducts({ products: res }));
-    });
-    //Error
+    console.log('2')
+    this.store.dispatch(getAllProducts());
     this.products$.subscribe((res) => {
-      console.log(res);
       this.products = res; // Assign the products directly
     });
     this.route.snapshot.url.some((e) => {
@@ -45,18 +42,20 @@ export class ProductsComponent implements OnInit {
       }
     });
   }
-  onAddToCart(product :Product):Observable<any> {
-
-     return this.http.post<any>('http://localhost:3360/cart/create',{username : this.username,productId : product.id , quantity : 1});
+  onAddToCart(product: Product): Observable<any> {
+    return this.http.post<any>('http://localhost:3360/cart/create', {
+      username: this.username,
+      productId: product.id,
+      quantity: 1,
+    });
   }
 
-  onAddToCartCall(product:Product){
+  onAddToCartCall(product: Product) {
     this.onAddToCart(product).subscribe((res) => {
-
-      console.log(res)
+      console.log(res);
     });
   }
   clearname() {
-    this.username = ""
+    this.username = '';
   }
 }

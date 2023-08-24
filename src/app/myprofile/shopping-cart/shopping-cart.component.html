@@ -16,7 +16,7 @@
             <th scope="col">Total</th>
           </tr>
         </thead>
-        <tbody *ngFor="let product of cartProducts;">
+        <tbody *ngFor="let product of cartProducts.cartItems;">
           <tr>
             <th scope="row"><img src="{{product.image}}" width="144px" height="96px"></th>
             <td><div class="name">
