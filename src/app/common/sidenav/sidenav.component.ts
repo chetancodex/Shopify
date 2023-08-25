@@ -10,7 +10,7 @@ import { MyProfileService } from 'src/app/myprofile/profileapiservice';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnInit {
-  username!: string;
+  username!: string | null;
   
   constructor(private loginService: LoginService, private http: HttpClient, private profileService: MyProfileService) {
    
@@ -18,11 +18,9 @@ export class SidenavComponent implements OnInit {
 
   ngOnInit() {
     // Subscribe to name updates
-    this.profileService.getNameUpdates().subscribe(name => {
-      this.username = name;
-      console.log(this.username);
-    });
-   
+    this.profileService.username$.subscribe((res)=> {
+      this.username = res
+    })
   }
 
   Logout() {

@@ -21,7 +21,7 @@ interface userdetails {
 export class ProfileInfoComponent {
   detailsubmit = false;
   status = false;
-  username!: string;
+  username!: string | null;
   contactNumber!: number;
   city!: string;
   street!: string;
@@ -33,9 +33,9 @@ export class ProfileInfoComponent {
     private http: HttpClient,
     private profileService : MyProfileService
   ) {
-    this.profileService.getNameUpdates().subscribe((data) => {
-      this.username = data;
-    });
+      this.profileService.username$.subscribe((res)=> {
+        this.username = res
+      })
   }
 
   onSubmit(form: NgForm) {

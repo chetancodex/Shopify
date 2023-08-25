@@ -24,7 +24,13 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.store.dispatch(loadCart());
+    this.cartProducts$.subscribe((res)=> {
+      this.cartProducts = res
+    })
+    console.log(this.cartProducts);
+    console.log(this.cartProducts$)
   }
 
 

@@ -12,21 +12,21 @@ import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
   providedIn: 'root',
 })
 export class CartService {
-  public username: string = '';
+  public username !: string | null
   constructor(
     private http: HttpClient,
     private profile: MyProfileService,
     private store: Store<{ cart: Product[] }>
   ) {
-    this.profile.getNameUpdates().subscribe((name) => {
-      this.username = name;
+    this.profile.username$.subscribe((res)=> {
+      this.username = res
+    })
       this.fetchCartItems();
-    });
   }
 
-  fetchCartItems(): Observable<any> {
+  fetchCartItems(): Observable<any []> {
        return  this.http
-        .post<any>('http://localhost:3360/cart/getcart', {
+        .post<any[]>('http://localhost:3360/cart/getcart', {
           username: this.username,
         })
     

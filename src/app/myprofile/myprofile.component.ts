@@ -7,13 +7,14 @@ import { MyProfileService } from './profileapiservice';  // Replace with the cor
   styleUrls: ['./myprofile.component.css'],
 })
 export class MyProfileComponent implements OnInit {
-  public username: string = 'Hello';
+  public username!: string | null;
   cart: boolean = false;
 
   constructor(private myProfileService: MyProfileService) {
-    this.myProfileService.getNameUpdates().subscribe((name) => {
-      this.username = name;
-    });
+  this.myProfileService.fetchAndUpdateUsername()
+      this.myProfileService.username$.subscribe((res)=> {
+    this.username = res
+  }) 
   }
 
   ngOnInit() {

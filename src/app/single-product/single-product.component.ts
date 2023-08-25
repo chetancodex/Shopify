@@ -12,6 +12,7 @@ import { MyProfileService } from '../myprofile/profileapiservice';
   styleUrls: ['./single-product.component.css']
 })
 export class SingleProductComponent implements OnInit {
+  username !: string |  null
   id!: string | null;
   image!: string;
   name!: string;
@@ -23,7 +24,9 @@ export class SingleProductComponent implements OnInit {
   price !: number
 
   constructor(private http: HttpClient, private route: ActivatedRoute , private profileService : MyProfileService) { 
-  
+  this.profileService.username$.subscribe((res)=> {
+    this.username = res
+  })
   }
 
   ngOnInit() {
@@ -66,7 +69,7 @@ export class SingleProductComponent implements OnInit {
  
 
   AddToCart( ) {
-    this.http.post('http://localhost:3360/cart/create',{username : this.profileService.name,productId : this.id , quantity : 1});
+    this.http.post('http://localhost:3360/cart/create',{username : this.username,productId : this.id , quantity : 1});
 };
 }
 
