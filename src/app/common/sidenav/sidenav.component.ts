@@ -1,29 +1,31 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/services/login-service';
-import { MyProfileComponent } from 'src/app/myprofile/myprofile.component';
+import {  Component} from '@angular/core';
 import { MyProfileService } from 'src/app/myprofile/profileapiservice';
+import { Router } from '@angular/router';
+import { CartService } from 'src/app/myprofile/shopping-cart/api.service.cart';
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css']
 })
-export class SidenavComponent implements OnInit {
+export class SidenavComponent  {
   username!: string | null;
   
-  constructor(private loginService: LoginService, private http: HttpClient, private profileService: MyProfileService) {
-   
+  constructor( private profileService: MyProfileService, private router : Router , private cartapi :CartService) {
+    const user = this.profileService.decodeJwt(localStorage.getItem('token'));
+    this.username = user.username
+    console.log(this.username);
   }
 
-  ngOnInit() {
-    // Subscribe to name updates
-    this.profileService.username$.subscribe((res)=> {
-      this.username = res
-    })
+ 
+  
+  onLogout() {
+    this.router.navigate(['login']);
+    localStorage.clear();
+    console.log('Local storage cleared');
+    this.cartapi.username = null
   }
+ 
+  
 
-  Logout() {
-    this.loginService.onLogout();
-  }
 }

@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { LoginService } from '../services/login-service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { MyProfileService } from '../myprofile/profileapiservice';
 
 @Component({
   selector: 'app-login',
@@ -15,10 +13,8 @@ export class LoginComponent {
   isError!: string;
 
   constructor(
-    private loginService: LoginService,
     private http: HttpClient,
     private router: Router,
-    private profileService : MyProfileService
   ) {}
 
   onLogin(form: NgForm) {
@@ -40,8 +36,7 @@ export class LoginComponent {
         console.log(responseData);
         localStorage.setItem('token', responseData.token);
         // Assuming the login was successful, you can navigate to another page
-        this.profileService.fetchAndUpdateUsername();
-        this.router.navigate(['myprofile']);
+          this.router.navigate(['side-nav']);
       },
       (error) => {
         // Request failed, handle the error here

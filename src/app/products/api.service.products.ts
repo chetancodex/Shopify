@@ -3,16 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../Interfaces/product-interface';
 import { MyProfileService } from '../myprofile/profileapiservice';
-import { Store } from '@ngrx/store';
 
 @Injectable({ providedIn: 'root' })
 export class ProductApiService {
   username!: string | null;
   constructor(private http: HttpClient, private myprofile: MyProfileService) {
-    this.myprofile.username$.subscribe((res) => {
-      this.username = res;
-    });
-    console.log(this.username)
+    // const user =  this.myprofile.decodeJwt(localStorage.getItem('token'));
+    // this.username = user.username 
   }
 
   getProducts(): Observable<any[]> {

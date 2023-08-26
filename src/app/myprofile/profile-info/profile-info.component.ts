@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, NgForm } from '@angular/forms';
-import { MyProfileComponent } from '../myprofile.component';
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { MyProfileService } from '../profileapiservice';
 
 interface userdetails {
@@ -29,13 +28,10 @@ export class ProfileInfoComponent {
   zipcode!: number;
 
   constructor(
-    private fb: FormBuilder,
     private http: HttpClient,
     private profileService : MyProfileService
   ) {
-      this.profileService.username$.subscribe((res)=> {
-        this.username = res
-      })
+    this.profileService.decodeJwt(localStorage.getItem('token'));
   }
 
   onSubmit(form: NgForm) {

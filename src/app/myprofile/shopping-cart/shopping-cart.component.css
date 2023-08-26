@@ -1,5 +1,5 @@
 .bf{
-    border-left : 7px solid purple
+    border-left : 7px solid #32c766
 }
 #button {
     color : black
@@ -16,7 +16,7 @@
     font-size: 16px;
     font-weight: 700;
     color: rgb(131, 56, 201);
-    border: 3px solid rgb(133, 2, 221);
+    border: 3px solid #32c766;
     cursor: pointer;
     position: relative;
     background-color: transparent;
@@ -42,3 +42,6 @@
    .btnary:hover::before {
     transform: translateX(0);
    }
+   .white {
+    color : #fff
+}

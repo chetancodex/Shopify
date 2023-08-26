@@ -12,6 +12,7 @@ import { MyProfileService } from '../myprofile/profileapiservice';
   styleUrls: ['./single-product.component.css']
 })
 export class SingleProductComponent implements OnInit {
+  token  = localStorage.getItem('token');
   username !: string |  null
   id!: string | null;
   image!: string;
@@ -22,11 +23,10 @@ export class SingleProductComponent implements OnInit {
   brand!:string
   model!: string;
   price !: number
-
+  
   constructor(private http: HttpClient, private route: ActivatedRoute , private profileService : MyProfileService) { 
-  this.profileService.username$.subscribe((res)=> {
-    this.username = res
-  })
+    const user =  this.profileService.decodeJwt(this.token);
+    this.username = user.username 
   }
 
   ngOnInit() {

@@ -7,14 +7,14 @@ import { MyProfileService } from './profileapiservice';  // Replace with the cor
   styleUrls: ['./myprofile.component.css'],
 })
 export class MyProfileComponent implements OnInit {
+  token  = localStorage.getItem('token');
   public username!: string | null;
   cart: boolean = false;
 
   constructor(private myProfileService: MyProfileService) {
-  this.myProfileService.fetchAndUpdateUsername()
-      this.myProfileService.username$.subscribe((res)=> {
-    this.username = res
-  }) 
+    const user =  this.myProfileService.decodeJwt(this.token);
+    this.username = user.username 
+  console.log(this.username)
   }
 
   ngOnInit() {
