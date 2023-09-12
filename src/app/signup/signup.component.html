@@ -1,22 +1,58 @@
-<div class="container" style="max-height: 80vh;">
-
-<div class="form-box">
-    <form class="form" #f="ngForm" (ngSubmit) = "onSignUp(f)">
-        <span class="title">Sign up</span>
-        <span class="subtitle" style="font-family:sans-serif; font-weight: 600; font-size: 21px;">Create a free account On Shopify</span>
-        <div class="form-container">
-          <input type="text" class="input" name="userName"id="userName"placeholder="Username" ngModel required><br>
-                <input type="email" class="input" name="email" id="email" placeholder="Email" ngModel minlength="6" email required><br>
-                <input type="password" class="input" name="password" id="password" placeholder="Password" ngModel minlength="6" required>
-        </div>
-        <button type="submit" >Sign up</button>
+<div class="container" style="max-height: 80vh">
+  <div class="form-box">
+    <form class="form" #f="ngForm" (ngSubmit)="onSignUp(f)">
+      <span class="title">Sign up</span>
+      <span
+        class="subtitle"
+        style="font-family: sans-serif; font-weight: 600; font-size: 21px"
+        >Create a free account On Shopify</span
+      >
+      <div class="form-container">
+        <input
+          type="text"
+          class="input"
+          name="userName"
+          id="userName"
+          placeholder="Username"
+          ngModel
+          required
+        /><br />
+        <input
+          type="email"
+          class="input"
+          name="email"
+          id="email"
+          placeholder="Email"
+          ngModel
+          minlength="6"
+          email
+          required
+        /><br />
+        <input
+          type="password"
+          class="input"
+          name="password"
+          id="password"
+          placeholder="Password"
+          ngModel
+          minlength="6"
+          required
+        />
+      </div>
+      <button type="submit">Sign up</button>
     </form>
     <div class="form-section">
-      <p style="font-size: 16px;">Have an account? <a routerLink="/login">Log in</a> </p>
+      <p style="font-size: 16px">
+        Have an account? <a routerLink="/login">Log in</a>
+      </p>
     </div>
-    </div>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <div class="box">
-    <img class="" style="width : 920px;height : 530px"src="../../assets/images/new.jpg">
+    <img
+      class=""
+      style="width: 920px; height: 530px"
+      src="../../assets/images/new.jpg"
+    />
   </div>
-  </div>
+</div>

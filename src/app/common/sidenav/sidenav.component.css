@@ -1,12 +1,37 @@
-#badakaro{
-    height:125%    
-}
-.list-group-item{
-    margin-top: 4%;
-}
-.title{
-    font-size: 18px;
-}
-.sidebar-container{
-    width: 350px
-}
+.nav-link.active {
+  background-color: #007bff; /* Change to the desired active link background color */
+  color: #ffffff; /* Change to the desired text color for active link */
+}   
+/* Define the animation */
+@keyframes slideIn {
+    from {
+      transform: translateX(-100%); /* Start off-screen to the left */
+    }
+    to {
+      transform: translateX(0); /* End at the normal position */
+    }
+  }
+  
+  @keyframes slideOut {
+    from {
+      transform: translateX(0); /* Start at the normal position */
+    }
+    to {
+      transform: translateX(-100%); /* End off-screen to the left */
+    }
+  }
+  
+  /* Apply the animation to the sidenav element */
+  .sidenav {
+    animation-duration: 0.3s; /* Adjust the duration as needed */
+  }
+  
+  /* Apply animation when ngIf adds/removes the element */
+  .sidenav.ng-star-inserted {
+    animation-name: slideIn;
+  }
+  
+  .sidenav.ng-star-removed {
+    animation-name: slideOut;
+  }
+  
