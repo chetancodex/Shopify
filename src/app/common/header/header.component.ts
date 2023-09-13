@@ -36,7 +36,6 @@ export class HeaderComponent implements OnInit {
   }
 
   private updateAccessProfileFromLocalStorage() {
-    // Update accessprofile based on the current value of 'token'
     this.accessprofile = !!localStorage.getItem('token');
   }
 }

@@ -10,6 +10,11 @@ import { CartService } from 'src/app/myprofile/shopping-cart/api.service.cart';
 })
 export class SidenavComponent  {
   username!: string | null;
+  isActive = false;
+
+  toggleActive() {
+    this.isActive = !this.isActive;
+  }
   
   constructor( private profileService: MyProfileService, private router : Router , private cartapi :CartService) {
     const user = this.profileService.decodeJwt(localStorage.getItem('token'));

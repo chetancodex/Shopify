@@ -16,7 +16,7 @@
             <a class="nav-link" routerLinkActive="active" style="color:#32c766;font-weight: 550;">Images</a> 
           </li>
           <li class="nav-item"   *ngIf="accessprofile">
-            <a class="nav-link" routerLink="myprofile"><img src="../../../assets/images/IMG_20200309_132647.jpg"
+            <a class="nav-link" routerLink="side-nav"><img src="../../../assets/images/IMG_20200309_132647.jpg"
               width="30px"></a>
           <div class="dropdown-menu">
               <li><a class="dropdown-item" routerLink="['/profile']"> Profile Info</a></li>
@@ -25,12 +25,8 @@
               <li><a class="dropdown-item" routerLink="notification">Notifications</a></li>
               <li><a class="dropdown-item" >Logout</a></li>
           </div>
-          </li><br>
-        <li class="nav-item" (click)="goToCart()" style="cursor:pointer">
-          <a class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16" *ngIf="accessprofile">
-            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-          </svg></a>
-        </li>
+          </li>
+  
         </ul>
         
     </div>

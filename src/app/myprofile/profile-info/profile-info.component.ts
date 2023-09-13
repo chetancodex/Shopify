@@ -31,7 +31,10 @@ export class ProfileInfoComponent {
     private http: HttpClient,
     private profileService : MyProfileService
   ) {
-    this.profileService.decodeJwt(localStorage.getItem('token'));
+   
+   let res = this.profileService.decodeJwt(localStorage.getItem('token'));
+   this.username = res.username
+   console.log(this.username)
   }
 
   onSubmit(form: NgForm) {

@@ -1,7 +1,10 @@
 .nav-link.active {
   background-color: #007bff; /* Change to the desired active link background color */
   color: #ffffff; /* Change to the desired text color for active link */
-}   
+}  
+.adjust {
+  border-radius: 5%;
+} 
 /* Define the animation */
 @keyframes slideIn {
     from {

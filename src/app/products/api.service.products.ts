@@ -8,8 +8,8 @@ import { MyProfileService } from '../myprofile/profileapiservice';
 export class ProductApiService {
   username!: string | null;
   constructor(private http: HttpClient, private myprofile: MyProfileService) {
-    // const user =  this.myprofile.decodeJwt(localStorage.getItem('token'));
-    // this.username = user.username 
+    const user =  this.myprofile.decodeJwt(localStorage.getItem('token'));
+    this.username = user.username 
   }
 
   getProducts(): Observable<any[]> {
