@@ -7,7 +7,7 @@ export interface ProductState {
   products: Product[];
 }
 
-const initialState: ProductState = {
+ const initialState: ProductState = {
   products: [],
 };
 
@@ -20,4 +20,5 @@ export const productReducer = createReducer(
   on(productActions.getAllProductsFailure, (state, {error}) => {
     return {...state , error};
   }
+
 ) );

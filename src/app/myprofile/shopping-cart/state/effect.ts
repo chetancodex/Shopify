@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, mergeMap, switchMap, tap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { CartService } from '../api.service.cart';
 import * as cartActions from './action';
@@ -21,4 +21,19 @@ export class CartEffects {
       )
     )
   );
+
+  deleteCartItem$ = createEffect(() =>
+  this.actions$.pipe(
+    ofType(cartActions.deleteCartItem),
+    switchMap((action) =>
+      this.cartService.deleteProduct(action.productId).pipe(
+        tap(() => console.log('on efffects')),
+        map((productId: any) => 
+          cartActions.deleteCartItemSuccess({ productId })),
+        catchError((error) => of(cartActions.deleteCartItemFailure({ error })))
+      )
+    )
+  )
+);
 }
+
