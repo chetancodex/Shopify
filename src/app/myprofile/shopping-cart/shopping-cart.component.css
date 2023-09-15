@@ -5,7 +5,6 @@
     color : black
 }
 .cart-container{
-    
     display:block;
     float: right
 }
@@ -44,4 +43,40 @@
    }
    .white {
     color : #0e141e
+}
+.label {
+    font-weight: 600;
+}
+.italic {
+    font-style: italic;
+}
+/* Style for the "+" button */
+#button.btn-success {
+    background-color: #28a745; /* Change the background color to green */
+    color: #fff; /* Change the text color to white */
+    border: none; /* Remove the button border */
+    padding: 5px 10px; /* Adjust the padding for better appearance */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Show a pointer cursor on hover */
+    margin-right: 5px; /* Add some spacing to the right */
+}
+
+/* Hover effect for the "+" button */
+#button.btn-success:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Style for the "Delete" button */
+#button.btn-danger {
+    background-color: #dc3545; /* Change the background color to red */
+    color: #fff; /* Change the text color to white */
+    border: none; /* Remove the button border */
+    padding: 5px 10px; /* Adjust the padding for better appearance */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Show a pointer cursor on hover */
+}
+
+/* Hover effect for the "Delete" button */
+#button.btn-danger:hover {
+    background-color: #c82333; /* Darker red on hover */
 }

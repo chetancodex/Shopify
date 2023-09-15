@@ -16,7 +16,6 @@ export class ShoppingCartComponent {
   cartProducts$!: Observable<Cart[]>;
 
   constructor(
-    private cartService: CartService,
     private store: Store<AppState>
   ) {
     this.store.dispatch(loadCart());

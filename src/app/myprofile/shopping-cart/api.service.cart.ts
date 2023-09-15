@@ -33,7 +33,7 @@ export class CartService {
       username : this.username,
       productId : productId
     }
-return this.http.post<any>('http://localhost:3360/cart/increment', data)
+return this.http.post<any>('http://localhost:3360/cart/create', data)
   }
   deleteProduct(productId: number) {
     console.log('api');

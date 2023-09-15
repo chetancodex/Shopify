@@ -1,72 +1,71 @@
-<div class="shopping-cart-conatiner" style=" background-color: rgb(141, 245, 160);">
-
-    <hr>
-<div class="cart-container" >
-
-  <div class="title container-lg bf">
-    <span><h2 style="color:  #0e141e">My Cart</h2></span>
-</div>
-    <table class="table white">
-        <thead>
-          <tr>
-            <th scope="col white">Product Preview</th>
-            <th scope="col white">Product</th>
-            <th scope="col white">Price</th>
-            <th scope="col white">Quantity</th>
-            <th scope="col white">Total</th>
-          </tr>
-        </thead>
-        <tbody *ngFor="let product of cartProducts$ | async">
-          <tr>
-            <th scope="row"><img src="{{product.image}}" width="144px" height="96px"></th>
-            <td><div class="name">
-                <h3>{{product.name}}</h3>
-                <p>{{product.description}}</p>
-            </div></td>
-            <td><div class="price">
-                {{product.price}}
-            </div></td>
-            <td>{{product.quantity}}</td>
-            <td>$4.90</td>
-            <button class="btn btn-success" id="button" (click)="onIncreament(product.productId)"> + </button>
-            <button class="btn btn-danger" id="button" (click)="deleteProduct(product.productId)">delete</button>
-          </tr>
-        
-        </tbody>
+<div class="shopping-cart-conatiner" style="background-color: rgb(141, 245, 160);">
+  <hr>
+  <div class="cart-container">
+      <div class="title container-lg bf">
+          <span><h2 style="color: #0e141e">My Cart</h2></span>
+      </div>
+      <table class="table white">
+          <thead>
+              <tr>
+                  <th scope="col white">Product Preview</th>
+                  <th scope="col white">Product</th>
+                  <th scope="col white">Price</th>
+                  <th scope="col white">Quantity</th>
+                  <th scope="col white">Total</th>
+              </tr>
+          </thead>
+          <tbody *ngFor="let product of cartProducts$ | async">
+              <tr>
+                  <th scope="row"><img src="{{product.image}}" width="144px" height="96px"></th>
+                  <td>
+                      <div class="name">
+                          <h3>{{product.name}}</h3>
+                          <p class="italic">{{product.description}}</p>
+                      </div>
+                  </td>
+                  <td>
+                      <div class="price">
+                          <p class="label">{{product.price}}</p>
+                      </div>
+                  </td>
+                  <td>
+                      <p class="label" style="text-align: center;">{{product.quantity}} &nbsp; &nbsp; <button class="btn btn-success" id="button" (click)="onIncreament(product.productId)"> + </button></p>
+                  </td>
+                  <td>$4.90</td>
+                  <td>
+                      <button class="btn btn-danger" id="button" (click)="deleteProduct(product.productId)">delete</button>
+                  </td>
+              </tr>
+          </tbody>
       </table>
-      <h4 style="color : #0e141e">Cart Details</h4>
+      <h4 style="color: #0e141e">Cart Details</h4>
       <div class="container">
-        <table class="table table-dark table-borderless">
-            <thead>
-                <tr>
-                  <th scope="col">SubTotal</th>
-                  <th scope="col">$20.00</th>
-                
-                </tr>
+          <table class="table table-dark table-borderless">
+              <thead>
+                  <tr>
+                      <th scope="col">SubTotal</th>
+                      <th scope="col">$20.00</th>
+                  </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th>Delivery</th>
-                  <td>$10.00</td>
-           
-                </tr>
-                <tr>
-                  <th>Discount</th>
-                  <td>$5.00</td>
-                </tr>
-                <hr>
-                <tr>
-                    <th>Total</th>
-                    <td>$25.00</td>
-                </tr>
-               
+                  <tr>
+                      <th>Delivery</th>
+                      <td>$10.00</td>
+                  </tr>
+                  <tr>
+                      <th>Discount</th>
+                      <td>$5.00</td>
+                  </tr>
+                  <hr>
+                  <tr>
+                      <th>Total</th>
+                      <td>$25.00</td>
+                  </tr>
               </tbody>
           </table>
       </div>
       <div class="container">
-        <a class="btnary" href="#">Proceed To CheckOut</a>
-            </div>
-</div>
-    
-
+          <a class="btnary" href="#">Proceed To CheckOut</a>
+      </div>
+  </div>
 </div>

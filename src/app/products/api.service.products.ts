@@ -16,11 +16,11 @@ export class ProductApiService {
     return this.http.get<any[]>('http://localhost:3360/products');
   }
   AddtoCart(product: Product): Observable<any> {
-    return this.http.post<any>('http://localhost:3360/cart/create', {
-      username: this.username,
-      productId: product.id,
-      quantity: 1,
-    });
+    const data = {
+      username : this.username,
+      productId : product.id
+    }
+    return this.http.post<any>('http://localhost:3360/cart/create', data );
   }
 }
 
