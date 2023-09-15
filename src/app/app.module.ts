@@ -62,8 +62,8 @@ import { CartEffects } from './myprofile/shopping-cart/state/effect';
     BrowserAnimationsModule,
     AccordionModule,
     StoreModule.forRoot({
-      products : productReducer,
-      cart : cartReducer
+      productState : productReducer,
+      cartState : cartReducer
     }),
     EffectsModule.forRoot([ProductEffects,CartEffects])
   ],

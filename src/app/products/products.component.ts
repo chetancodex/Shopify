@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../Interfaces/product-interface';
 import { Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { getAllProducts } from './state/action';
 import * as productActions from './state/action';
+import { AppState, selectAllProducts } from './state/selector';
 
 @Component({
   selector: 'app-products',
@@ -18,9 +19,9 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private store: Store<{ products: Product[] }>
+    private store: Store<AppState>
   ) {
-    this.products$ = this.store.select('products');
+    this.products$ = this.store.pipe(select(selectAllProducts));
   }
 
   ngOnInit() {
@@ -28,6 +29,7 @@ export class ProductsComponent implements OnInit {
     this.products$.subscribe((res) => {
       this.products = res; // Assign the products directly
     });
+    
     this.route.snapshot.url.some((e) => {
       if (e.path === 'products') {
         this.occur = true;

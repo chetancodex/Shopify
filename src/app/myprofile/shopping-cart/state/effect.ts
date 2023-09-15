@@ -21,19 +21,36 @@ export class CartEffects {
       )
     )
   );
+  increamentCartItem$ = createEffect(() =>
+  this.actions$.pipe(
+    ofType(cartActions.incrementCartItem),
+    switchMap((action) =>
+      this.cartService.incrementCartItem(action.product).pipe(
+        tap(() => console.log('on Increment cart Item')),
+        map(() => cartActions.loadCart()),
+        catchError((error) =>
+          of(cartActions.incrementCartItemFailure({ error })) // Handle error with an action
+        )
+      )
+    )
+  )
+);
+
+
 
   deleteCartItem$ = createEffect(() =>
   this.actions$.pipe(
     ofType(cartActions.deleteCartItem),
     switchMap((action) =>
       this.cartService.deleteProduct(action.productId).pipe(
-        tap(() => console.log('on efffects')),
-        map((productId: any) => 
-          cartActions.deleteCartItemSuccess({ productId })),
+        tap(() => console.log('Successfully deleted cart item')),
+        // Dispatch the loadCart action after successfully deleting the item
+        map(() => cartActions.loadCart()), // Dispatch loadCart action here
         catchError((error) => of(cartActions.deleteCartItemFailure({ error })))
       )
     )
   )
 );
+
 }
 

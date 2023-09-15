@@ -7,4 +7,5 @@ export interface Cart {
     price : number,
     description : string,
     name : string,
+    image : string
 }

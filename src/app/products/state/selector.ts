@@ -1,16 +1,22 @@
-import { createSelector } from "@ngrx/store";
+import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { Product } from "src/app/Interfaces/product-interface";
 
-export interface Products {
-    products : Product[]
-}
-export interface AppState {
-    products : Products
+export interface ProductState {
+  products: Product[];
 }
 
-export const selectProducts = (state  :AppState)=> state.products;
+export interface AppState {
+    productState: ProductState;
+  }
+  
+
+export const initialState: ProductState = {
+  products: [],
+};
+// Create a feature selector for the 'productState' state slice
+export const selectProductsState = createFeatureSelector<ProductState>('productState');
 export const selectAllProducts = createSelector(
-    selectProducts,
-    (productsState : Products) => productsState.products    
-)
+  selectProductsState,
+  (state: ProductState) => state.products
+);
 

@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { MyProfileService } from '../profileapiservice';
-import { NavigationEnd, Router } from '@angular/router';
-import { Observable, filter } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Product } from 'src/app/Interfaces/product-interface';
 
@@ -29,7 +28,15 @@ export class CartService {
   refreshCartItems() {
     this.fetchCartItems();
   }
-  deleteProduct(productId: Product) {
+  incrementCartItem(productId : number ) {
+    const data = {
+      username : this.username,
+      productId : productId
+    }
+return this.http.post<any>('http://localhost:3360/cart/increment', data)
+  }
+  deleteProduct(productId: number) {
+    console.log('api');
     const data = {
       username: this.username,
       productId: productId,

@@ -1,40 +1,34 @@
 import { Component, OnDestroy } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Product } from 'src/app/Interfaces/product-interface';
 import { CartService } from './api.service.cart';
-import { Store } from '@ngrx/store';
-import { deleteCartItem, loadCart } from './state/action';
-import { Observable, Subscription } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { deleteCartItem, incrementCartItem, loadCart } from './state/action';
+import { Observable } from 'rxjs';
 import { Cart } from 'src/app/Interfaces/cart.interface';
+import { AppState, selectAllCartItems } from './state/selector';
 
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css'],
 })
-export class ShoppingCartComponent implements OnDestroy {
+export class ShoppingCartComponent {
   cartProducts: any;
   cartProducts$!: Observable<Cart[]>;
-  cartSubscription!: Subscription;
 
   constructor(
-    private http: HttpClient,
     private cartService: CartService,
-    private store: Store<{ cart: Cart[] }>
+    private store: Store<AppState>
   ) {
-    this.cartService.fetchCartItems();
     this.store.dispatch(loadCart());
-    this.cartProducts$ = this.store.select('cart');
-    this.cartSubscription = this.cartProducts$.subscribe((res) => {
-      this.cartProducts = res;
-    });
+    this.cartProducts$ = this.store.pipe(select(selectAllCartItems));
+    
   }
-
-  ngOnDestroy(): void {
-    this.cartSubscription.unsubscribe();
+   
+  onIncreament(product : any) {
+    this.store.dispatch(incrementCartItem({ product }))
   }
-  deleteProduct(productId: Product) {
-    console.log(productId);
+  deleteProduct(productId: number) {
+    console.log('component')
     this.store.dispatch(deleteCartItem({ productId }));
   }
 }

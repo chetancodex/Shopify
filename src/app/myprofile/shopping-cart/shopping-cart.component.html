@@ -16,7 +16,7 @@
             <th scope="col white">Total</th>
           </tr>
         </thead>
-        <tbody *ngFor="let product of cartProducts.cartItems;">
+        <tbody *ngFor="let product of cartProducts$ | async">
           <tr>
             <th scope="row"><img src="{{product.image}}" width="144px" height="96px"></th>
             <td><div class="name">
@@ -26,8 +26,9 @@
             <td><div class="price">
                 {{product.price}}
             </div></td>
-            <td>1</td>
+            <td>{{product.quantity}}</td>
             <td>$4.90</td>
+            <button class="btn btn-success" id="button" (click)="onIncreament(product.productId)"> + </button>
             <button class="btn btn-danger" id="button" (click)="deleteProduct(product.productId)">delete</button>
           </tr>
         
