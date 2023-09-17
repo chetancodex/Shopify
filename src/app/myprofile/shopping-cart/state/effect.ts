@@ -21,21 +21,32 @@ export class CartEffects {
       )
     )
   );
-  increamentCartItem$ = createEffect(() =>
+  updateCartItem$ = createEffect(() =>
   this.actions$.pipe(
-    ofType(cartActions.incrementCartItem),
+    ofType(cartActions.updateCartItem),
     switchMap((action) =>
-      this.cartService.incrementCartItem(action.product).pipe(
-        tap(() => console.log('on Increment cart Item')),
+      this.cartService.updateCartItem(action.productId ,action.quantity).pipe(
+        tap(() => console.log('on updated Effects Item')),
         map(() => cartActions.loadCart()),
         catchError((error) =>
-          of(cartActions.incrementCartItemFailure({ error })) // Handle error with an action
+          of(cartActions.updateCartItemFailure({ error })) // Handle error with an action
         )
       )
     )
   )
 );
-
+// decrementCartItem$ = createEffect(() => 
+//   this.actions$.pipe(
+//     ofType(cartActions.decrementCartItem),
+//     switchMap((action) => 
+//     this.cartService.decrementCartItem(action.product).pipe(
+//       tap(() => console.log('on decrement Item')),
+//       map(() => cartActions.loadCart()),
+//       catchError((error) => 
+//       of(cartActions.decrementCartItemFailure({ error })))
+//     ))
+//   )
+// );
 
 
   deleteCartItem$ = createEffect(() =>
@@ -44,8 +55,7 @@ export class CartEffects {
     switchMap((action) =>
       this.cartService.deleteProduct(action.productId).pipe(
         tap(() => console.log('Successfully deleted cart item')),
-        // Dispatch the loadCart action after successfully deleting the item
-        map(() => cartActions.loadCart()), // Dispatch loadCart action here
+        map(() => cartActions.loadCart()), 
         catchError((error) => of(cartActions.deleteCartItemFailure({ error })))
       )
     )

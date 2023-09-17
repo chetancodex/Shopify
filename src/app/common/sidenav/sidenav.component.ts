@@ -28,7 +28,6 @@ export class SidenavComponent  {
     this.router.navigate(['login']);
     localStorage.clear();
     console.log('Local storage cleared');
-    this.cartapi.username = null
   }
  
   

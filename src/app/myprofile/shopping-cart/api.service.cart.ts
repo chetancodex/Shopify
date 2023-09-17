@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { MyProfileService } from '../profileapiservice';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { Product } from 'src/app/Interfaces/product-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +14,7 @@ export class CartService {
 
   fetchCartItems(): Observable<any[]> {
     if (this.token) {
-      const user = this.profile.decodeJwt(this.token);
+      const user = this.profile.decodeJwt(this.token);  
       console.log(user);
       this.username = user.username;
     }
@@ -25,16 +24,16 @@ export class CartService {
     });
   }
 
-  refreshCartItems() {
-    this.fetchCartItems();
-  }
-  incrementCartItem(productId : number ) {
+  updateCartItem(productId: number, qty: number) {
+    console.log('on update api');
     const data = {
-      username : this.username,
-      productId : productId
-    }
-return this.http.post<any>('http://localhost:3360/cart/create', data)
+      username: this.username,
+      productId: productId,
+      quantity: qty,
+    };
+    return this.http.patch<any>('http://localhost:3360/cart/create', data);
   }
+
   deleteProduct(productId: number) {
     console.log('api');
     const data = {

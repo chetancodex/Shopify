@@ -15,7 +15,6 @@ import { ProfileInfoComponent } from './myprofile/profile-info/profile-info.comp
 import { ReviewRatingComponent } from './myprofile/review-rating/review-rating.component';
 import { SavedCardsComponent } from './myprofile/saved-cards/saved-cards.component';
 import { ShoppingCartComponent } from './myprofile/shopping-cart/shopping-cart.component';
-import { WishlistComponent } from './myprofile/wishlist/wishlist.component';
 import { ProductsComponent } from './products/products.component';
 import { SingleProductComponent } from './single-product/single-product.component';
 import { MyProfileComponent } from './myprofile/myprofile.component'
@@ -24,12 +23,13 @@ import { LoadingSpinner } from './services/loading-spinner/loading-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionModule } from './lib/acoordian/accordian.module';
 import { SignupComponent } from './signup/signup.component';
-import { StoreModule, provideStore } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { productReducer } from './products/state/reducer';
 import { cartReducer } from './myprofile/shopping-cart/state/reducer';
 import { ProductEffects } from './products/state/effects';
 import { CartEffects } from './myprofile/shopping-cart/state/effect';
+import { OrdersComponent } from './myprofile/orders/orders.component';
 
 
 
@@ -47,12 +47,12 @@ import { CartEffects } from './myprofile/shopping-cart/state/effect';
     ReviewRatingComponent,
     SavedCardsComponent,
     ShoppingCartComponent,
-    WishlistComponent,
     ProductsComponent,
     SingleProductComponent,
     MyProfileComponent,
     LoadingSpinner,
     SignupComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,

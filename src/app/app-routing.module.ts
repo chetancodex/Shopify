@@ -10,11 +10,11 @@ import { NotificationsComponent } from './myprofile/notifications/notifications.
 import { ReviewRatingComponent } from './myprofile/review-rating/review-rating.component';
 import { SavedCardsComponent } from './myprofile/saved-cards/saved-cards.component';
 import { ShoppingCartComponent } from './myprofile/shopping-cart/shopping-cart.component';
-import { WishlistComponent } from './myprofile/wishlist/wishlist.component';
 import { SidenavComponent } from './common/sidenav/sidenav.component';
 import { AuthGuard } from './services/auth-service';
 import { SignupComponent } from './signup/signup.component';
 import { SingleProductComponent } from './single-product/single-product.component';
+import { OrdersComponent } from './myprofile/orders/orders.component';
 
 const routes: Routes = [
   { path: "" ,component: HomeComponent, },
@@ -31,7 +31,7 @@ const routes: Routes = [
           {path:'review', component:ReviewRatingComponent },
           {path:'saved-cards', component:SavedCardsComponent},
           {path:'shopping-cart',component:ShoppingCartComponent},
-          {path:'wishlist',component:WishlistComponent},
+          {path : 'orders' , component : OrdersComponent},
           {
             path: '',
             redirectTo: 'myprofile',
