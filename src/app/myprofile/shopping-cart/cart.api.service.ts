@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MyProfileService } from '../profileapiservice';
+import { MyProfileService } from '../profile.api.service';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 

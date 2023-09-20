@@ -31,6 +31,8 @@ import { ProductEffects } from './products/state/effects';
 import { CartEffects } from './myprofile/shopping-cart/state/effect';
 import { OrdersComponent } from './myprofile/orders/orders.component';
 import { JwtInterceptor } from './services/auth-intercepter';
+import { OrderReducer } from './myprofile/orders/state/reducer';
+import { OrderEffects } from './myprofile/orders/state/effects';
 
 
 
@@ -64,9 +66,10 @@ import { JwtInterceptor } from './services/auth-intercepter';
     AccordionModule,
     StoreModule.forRoot({
       productState : productReducer,
-      cartState : cartReducer
+      cartState : cartReducer,
+      orderState : OrderReducer
     }),
-    EffectsModule.forRoot([ProductEffects,CartEffects])
+    EffectsModule.forRoot([ProductEffects,CartEffects,OrderEffects])
   ],
   providers: [{provide: HTTP_INTERCEPTORS , useClass : JwtInterceptor , multi: true}],
   bootstrap: [AppComponent],

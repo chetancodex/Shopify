@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { CartService } from '../api.service.cart';
+import { CartService } from '../cart.api.service';
 import * as cartActions from './action';
 
 @Injectable()
@@ -30,7 +30,7 @@ export class CartEffects {
         map(() => cartActions.loadCart()),
         catchError((error) =>
           of(cartActions.updateCartItemFailure({ error })) // Handle error with an action
-        )
+        ) 
       )
     )
   )

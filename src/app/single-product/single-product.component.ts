@@ -3,8 +3,8 @@ import { Product } from '../Interfaces/product-interface';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { CartService } from '../myprofile/shopping-cart/api.service.cart';
-import { MyProfileService } from '../myprofile/profileapiservice';
+import { CartService } from '../myprofile/shopping-cart/cart.api.service';
+import { MyProfileService } from '../myprofile/profile.api.service';
 
 @Component({
   selector: 'app-single-product',

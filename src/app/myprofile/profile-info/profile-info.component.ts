@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MyProfileService } from '../profileapiservice';
+import { MyProfileService } from '../profile.api.service';
 
 interface userdetails {
   username: string;

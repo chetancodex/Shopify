@@ -7,7 +7,7 @@ export interface CartState {
 }
 
 const initialState: CartState = {
-  cartItems: [],
+  cartItems: [],  
 };
 
 export const cartReducer = createReducer(

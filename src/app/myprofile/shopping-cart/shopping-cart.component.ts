@@ -24,7 +24,7 @@ export class ShoppingCartComponent {
     const quantity = product.quantity + 1;
     this.UpdateCartItem(productId, quantity);
   }
-  onDecrement(product: Cart) {
+  onDecrement(product: Cart) {  
     const productId = product.productId;
     const qty = product.quantity - 1;
     this.UpdateCartItem(productId, qty);

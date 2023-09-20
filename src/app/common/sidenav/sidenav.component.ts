@@ -1,7 +1,6 @@
 import {  Component} from '@angular/core';
-import { MyProfileService } from 'src/app/myprofile/profileapiservice';
+import { MyProfileService } from 'src/app/myprofile/profile.api.service';
 import { Router } from '@angular/router';
-import { JwtInterceptor } from 'src/app/services/auth-intercepter';
 
 @Component({
   selector: 'app-sidenav',

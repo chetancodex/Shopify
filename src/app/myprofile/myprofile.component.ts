@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MyProfileService } from './profileapiservice';  // Replace with the correct path
+import { MyProfileService } from './profile.api.service';  // Replace with the correct path
 
 @Component({
   selector: 'app-myprofile',
