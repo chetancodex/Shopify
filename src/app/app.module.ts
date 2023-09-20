@@ -18,7 +18,7 @@ import { ShoppingCartComponent } from './myprofile/shopping-cart/shopping-cart.c
 import { ProductsComponent } from './products/products.component';
 import { SingleProductComponent } from './single-product/single-product.component';
 import { MyProfileComponent } from './myprofile/myprofile.component'
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { LoadingSpinner } from './services/loading-spinner/loading-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionModule } from './lib/acoordian/accordian.module';
@@ -30,6 +30,7 @@ import { cartReducer } from './myprofile/shopping-cart/state/reducer';
 import { ProductEffects } from './products/state/effects';
 import { CartEffects } from './myprofile/shopping-cart/state/effect';
 import { OrdersComponent } from './myprofile/orders/orders.component';
+import { JwtInterceptor } from './services/auth-intercepter';
 
 
 
@@ -67,7 +68,7 @@ import { OrdersComponent } from './myprofile/orders/orders.component';
     }),
     EffectsModule.forRoot([ProductEffects,CartEffects])
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS , useClass : JwtInterceptor , multi: true}],
   bootstrap: [AppComponent],
  
 })

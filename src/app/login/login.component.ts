@@ -11,11 +11,13 @@ import { HttpClient } from '@angular/common/http';
 export class LoginComponent {
   isLoading: boolean = false;
   isError!: string;
-
+  token = localStorage.getItem('token')
   constructor(
     private http: HttpClient,
     private router: Router,
-  ) {}
+  ) {
+    console.log(" token " + this.token)
+  }
 
   onLogin(form: NgForm) {
     

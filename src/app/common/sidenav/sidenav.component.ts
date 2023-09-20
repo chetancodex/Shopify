@@ -1,7 +1,7 @@
 import {  Component} from '@angular/core';
 import { MyProfileService } from 'src/app/myprofile/profileapiservice';
 import { Router } from '@angular/router';
-import { CartService } from 'src/app/myprofile/shopping-cart/api.service.cart';
+import { JwtInterceptor } from 'src/app/services/auth-intercepter';
 
 @Component({
   selector: 'app-sidenav',
@@ -16,10 +16,9 @@ export class SidenavComponent  {
     this.isActive = !this.isActive;
   }
   
-  constructor( private profileService: MyProfileService, private router : Router , private cartapi :CartService) {
+  constructor( private profileService: MyProfileService, private router : Router) {
     const user = this.profileService.decodeJwt(localStorage.getItem('token'));
     this.username = user.username
-    console.log(this.username);
   }
 
  
