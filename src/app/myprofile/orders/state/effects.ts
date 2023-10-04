@@ -12,7 +12,7 @@ export class OrderEffects {
             ofType(orderActions.loadOrderItems),
             switchMap(() => 
             this.orderService.fetchOrderItems().pipe(
-                tap((orderItems) => console.log("Fetched : ", orderItems)),
+                tap((orderItems) => console.log("Fetched OrderItems: ", orderItems)),
                 map((orderItems) => orderActions.loadOrderItemsSuccess({ orderItems })),
                 catchError((error) => of(orderActions.loadOrderItemsFailure({ error })))
             ))

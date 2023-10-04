@@ -14,7 +14,7 @@ export class CartEffects {
       ofType(cartActions.loadCart),
       switchMap(() =>
         this.cartService.fetchCartItems().pipe(
-          tap((cartItems) => console.log('fetched', cartItems)),
+          tap((cartItems) => console.log('Fetched cartItems', cartItems)),
           map((cartItems) => cartActions.loadCartSuccess({ cartItems })),
           catchError((error) => of(cartActions.loadCartFailure({ error })))
         )

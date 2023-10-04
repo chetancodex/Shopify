@@ -10,12 +10,12 @@
           </tr>
         </thead>
         <tbody>
-          <!-- <tr *ngFor="let  order of OrderProducts$ | async; " > -->
+          <tr *ngFor="let order of orderItems$ | async;" >
             <th scope="row">1</th>
-            <!-- <td class="whitener">{{order.name}}</td> -->
-            <!-- <td class="whitener">{{order.quantity}}</td> -->
-            <!-- <td class="whitener">{{order.quantity * order.price}}</td> -->
-          <!-- </tr> -->
+            <td class="whitener">{{order.productId}}</td>
+            <td class="whitener">{{order.quantity}}</td>
+           
+          </tr>
           
         </tbody>
       </table>
