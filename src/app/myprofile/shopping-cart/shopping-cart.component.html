@@ -33,17 +33,17 @@
               <p class="label">{{ product.price }}</p>
             </div>
           </td>
-          <td>
-            <button class="btn btn-success" (click)="onDecrement(product)"> - </button> &nbsp; &nbsp;
+          <td class="quantity">
             <p class="label" style="text-align: center">
+            <a class="btn btn-success"  (click)="onDecrement(product)"> - </a> &nbsp; &nbsp;
               {{ product.quantity }} &nbsp; &nbsp;
-              <button
+              <a
                 class="btn btn-success"
                 id="button"
                 (click)="onIncrement(product)"
               >
                 +
-              </button>
+            </a>
             </p>
           </td>
           <td>

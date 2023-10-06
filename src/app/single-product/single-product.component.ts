@@ -68,9 +68,6 @@ export class SingleProductComponent implements OnInit {
 
  
 
-  AddToCart( ) {
-    this.http.post('http://localhost:3360/cart/create',{username : this.username,productId : this.id , quantity : 1});
-};
 }
 
 

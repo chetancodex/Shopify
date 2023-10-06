@@ -14,7 +14,6 @@ export class MyProfileComponent implements OnInit {
   constructor(private myProfileService: MyProfileService) {
     const user =  this.myProfileService.decodeJwt(this.token);
     this.username = user.username 
-  console.log(this.username)
   }
 
   ngOnInit() {

@@ -22,45 +22,44 @@ export class CartEffects {
     )
   );
   updateCartItem$ = createEffect(() =>
-  this.actions$.pipe(
-    ofType(cartActions.updateCartItem),
-    switchMap((action) =>
-      this.cartService.updateCartItem(action.productId ,action.quantity).pipe(
-        tap(() => console.log('on updated Effects Item')),
-        map(() => cartActions.loadCart()),
-        catchError((error) =>
-          of(cartActions.updateCartItemFailure({ error })) // Handle error with an action
-        ) 
+    this.actions$.pipe(
+      ofType(cartActions.updateCartItem),
+      switchMap((action) =>
+        this.cartService.updateCartItem(action.productId, action.quantity).pipe(
+          tap(() => console.log('on updated Effects Item')),
+          map(() => cartActions.loadCart()),
+          catchError(
+            (error) => of(cartActions.updateCartItemFailure({ error })) // Handle error with an action
+          )
+        )
       )
     )
-  )
-);
-// decrementCartItem$ = createEffect(() => 
-//   this.actions$.pipe(
-//     ofType(cartActions.decrementCartItem),
-//     switchMap((action) => 
-//     this.cartService.decrementCartItem(action.product).pipe(
-//       tap(() => console.log('on decrement Item')),
-//       map(() => cartActions.loadCart()),
-//       catchError((error) => 
-//       of(cartActions.decrementCartItemFailure({ error })))
-//     ))
-//   )
-// );
-
+  );
 
   deleteCartItem$ = createEffect(() =>
-  this.actions$.pipe(
-    ofType(cartActions.deleteCartItem),
-    switchMap((action) =>
-      this.cartService.deleteProduct(action.productId).pipe(
-        tap(() => console.log('Successfully deleted cart item')),
-        map(() => cartActions.loadCart()), 
-        catchError((error) => of(cartActions.deleteCartItemFailure({ error })))
+    this.actions$.pipe(
+      ofType(cartActions.deleteCartItem),
+      switchMap((action) =>
+        this.cartService.deleteProduct(action.productId).pipe(
+          tap(() => console.log('Successfully deleted cart item')),
+          map(() => cartActions.loadCart()),
+          catchError((error) =>
+            of(cartActions.deleteCartItemFailure({ error }))
+          )
+        )
       )
     )
-  )
-);
-
+  );
+  setOrders$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(cartActions.orderCartItem),
+      switchMap((action) =>
+        this.cartService.setOrder(action.cartData).pipe(
+          tap(() => console.log('Set Orders')),
+          map(() => cartActions.orderCartItemSuccess),
+          catchError((error) => of(cartActions.orderCartItemFailure({ error })))
+        )
+      )
+    )
+  );
 }
-

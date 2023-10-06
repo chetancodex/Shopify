@@ -17,13 +17,13 @@ export class ShoppingCartComponent {
     this.store.dispatch(loadCart());
     this.cartProducts$ = this.store.pipe(select(selectAllCartItems));
   }
+
   onIncrement(product: Cart) {
-    console.log('on component');
-    console.log(product);
     const productId = product.productId;
     const quantity = product.quantity + 1;
     this.UpdateCartItem(productId, quantity);
   }
+
   onDecrement(product: Cart) {  
     const productId = product.productId;
     const qty = product.quantity - 1;
@@ -35,10 +35,23 @@ export class ShoppingCartComponent {
   }
 
   deleteProduct(productId: number) {
-    console.log('component');
     this.store.dispatch(deleteCartItem({ productId }));
   }
+
   goToOrders() {
-    this.store.dispatch(orderCartItem())
+    // Subscribe to the cartProducts$ observable to get all cart items
+    this.cartProducts$.subscribe((cartItems) => {
+      // Extract productId and quantity from each cart item
+      const cartData = cartItems.map((item) => ({
+        productId: item.productId,
+        quantity: item.quantity,
+      }));
+      
+      // Now, you have cartData containing productId and quantity of all cart items
+      console.log('Cart Data:', cartData);
+
+      // Dispatch your action with the cart data as needed
+      this.store.dispatch(orderCartItem({ cartData }));
+    });
   }
 }

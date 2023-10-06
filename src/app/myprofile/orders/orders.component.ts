@@ -17,7 +17,6 @@ orderItems$ !: Observable<Order[]>;
 constructor(private store: Store<AppState>) {
  this.store.dispatch(loadOrderItems());
  this.orderItems$ = this.store.pipe(select(selectAllOrderItems));
- console.log(this.orderItems$)
 }
 
 

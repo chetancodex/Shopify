@@ -11,3 +11,7 @@
 span{
     font-size: 40px
 }
+.container-xxl {
+    overflow : auto;
+}
+

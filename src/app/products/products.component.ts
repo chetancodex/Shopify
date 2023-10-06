@@ -38,6 +38,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onAddToCart(product: Product): void {
+
     this.store.dispatch(productActions.addToCart({ product }));
   }
  

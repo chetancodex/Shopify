@@ -6,7 +6,12 @@
 }
 .cart-container{
     display:flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
+}
+
+.quantity {
+  display: flex;
+  flex-direction: row;
 }
 .btnary {
     text-align: center;
