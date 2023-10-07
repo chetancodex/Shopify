@@ -53,10 +53,10 @@ export class CartEffects {
   setOrders$ = createEffect(() =>
     this.actions$.pipe(
       ofType(cartActions.orderCartItem),
-      switchMap((action) =>
-        this.cartService.setOrder(action.cartData).pipe(
+      switchMap(() =>
+        this.cartService.setOrder().pipe(
           tap(() => console.log('Set Orders')),
-          map(() => cartActions.orderCartItemSuccess),
+          map(() => cartActions.loadCart()),
           catchError((error) => of(cartActions.orderCartItemFailure({ error })))
         )
       )

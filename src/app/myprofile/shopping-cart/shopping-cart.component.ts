@@ -39,19 +39,6 @@ export class ShoppingCartComponent {
   }
 
   goToOrders() {
-    // Subscribe to the cartProducts$ observable to get all cart items
-    this.cartProducts$.subscribe((cartItems) => {
-      // Extract productId and quantity from each cart item
-      const cartData = cartItems.map((item) => ({
-        productId: item.productId,
-        quantity: item.quantity,
-      }));
-      
-      // Now, you have cartData containing productId and quantity of all cart items
-      console.log('Cart Data:', cartData);
-
-      // Dispatch your action with the cart data as needed
-      this.store.dispatch(orderCartItem({ cartData }));
-    });
+      this.store.dispatch(orderCartItem());
   }
 }

@@ -9,6 +9,6 @@ export const updateCartItemFailure = createAction('[Cart]  updateCartItem Failur
 export const deleteCartItem = createAction('[Cart] Delete Cart', props<{ productId : any}>());
 export const deleteCartItemSuccess = createAction('[Cart] Delete Cart Success', props<{ productId: any}>());
 export const deleteCartItemFailure = createAction('[Cart] Delete Cart Failure', props<{ error: any }>());
-export const orderCartItem = createAction('[Cart] OrderCart Item',props<{cartData: any[]}>());
+export const orderCartItem = createAction('[Cart] OrderCart Item');
 export const orderCartItemSuccess = createAction('[Cart] OrderCart Item Success', props<{ cartData : any[]}>());
 export const orderCartItemFailure = createAction('[Cart] OrderCart  Item Failure', props<{ error : any}>());

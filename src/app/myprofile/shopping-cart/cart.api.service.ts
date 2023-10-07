@@ -31,11 +31,8 @@ export class CartService {
     };
     return this.http.post<any>('http://localhost:3360/cart/delete', data);
   };
-  setOrder(cartData : any[]) {
-   const  data = {
-      productId : cartData.map((item) => item.productId),
-      quantity : cartData.map((item) => item.quantity)
-    }
-   return  this.http.post<any>('http://localhost:3360/order', data)
+  setOrder() {
+    console.log('set order')
+   return  this.http.get<any>('http://localhost:3360/order/api/checkout')
   }
 }
