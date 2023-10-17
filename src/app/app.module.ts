@@ -33,6 +33,7 @@ import { OrdersComponent } from './myprofile/orders/orders.component';
 import { JwtInterceptor } from './services/auth-intercepter';
 import { OrderReducer } from './myprofile/orders/state/reducer';
 import { OrderEffects } from './myprofile/orders/state/effects';
+import { PaymentComponent } from './myprofile/payment/payment.component';
 
 
 
@@ -56,6 +57,7 @@ import { OrderEffects } from './myprofile/orders/state/effects';
     LoadingSpinner,
     SignupComponent,
     OrdersComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,

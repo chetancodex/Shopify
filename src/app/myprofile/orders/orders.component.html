@@ -3,7 +3,6 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Products Name</th>
             <th scope="col">Quantity</th>
             <th scope="col">Price</th>
@@ -11,21 +10,15 @@
         </thead>
         <tbody>
           <tr *ngFor="let order of orderItems$ | async;" >
-            <th scope="row">1</th>
-            <td class="whitener">{{order.productId}}</td>
+            <td class="whitener">{{order.name}}</td>
             <td class="whitener">{{order.quantity}}</td>
+            <td class="whitener">{{order.price}}</td>
            
           </tr>
           
         </tbody>
       </table>
       <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Sub Total</th>
-            <th scope="col">Total Price</th>
-          </tr>
-        </thead>
         <tbody>
           <tr>
             <td class="white">Shipping Address</td>
@@ -33,11 +26,11 @@
           </tr>
           <tr>
             <td class="white">Total Quantity</td>
-            <!-- <td class="white">{{totalQuantity}}</td> -->
+            <td class="white">{{totalQuantity}}</td>
           </tr>
           <tr>
             <td class="white">Grand Total</td>
-            <!-- <td class="white"> $ {{grandTotal}}</td> -->
+            <td class="white"> $ {{grandTotal}}</td>
           </tr>
         </tbody>
         
